@@ -20,5 +20,5 @@ pi = 3.14
 print(mensagen)
 print(n)
 print(pi)
-print(81**0.5)
+print(81**0.6)
 

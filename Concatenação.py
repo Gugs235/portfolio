@@ -1,4 +1,4 @@
-# Concatenação - concatenar (juntar texto) abacate + azedo = abacate azedo
+# Concatenação - concatenar (juntar texto) abacate + azedo = abacate azedo.
 a = "jhonathan"
 b = "Soares"
 print("Prezado " +a+" "+b+ ". Olá!")

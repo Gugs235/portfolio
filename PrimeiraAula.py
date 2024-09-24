@@ -14,7 +14,7 @@ print(type('Esse é um string.'))
 print(type("Esse é um string."))
 print(type('''E esse tambem.'''))
 print(type("""E mesmo esse..."""))
-mensagen = "Não contavam com minha astucia"
+mensagen = "Não contavam com minha astucia."
 n = 2021
 pi = 3.14
 print(mensagen)

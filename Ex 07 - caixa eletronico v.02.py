@@ -8,8 +8,8 @@ estrato = 1000.00
 senha = int(input("Escreva sua senha: "))
 
 while resposta != 5 and senha == senha2:
-        print("\n")
         if senha == senha2:
+            print("\n")
             print("ACESSO PERMITIDO")
             print("1 - Estrato")
             print("2 - Deposito")
@@ -19,20 +19,24 @@ while resposta != 5 and senha == senha2:
             resposta = int(input("O que você deseja? "))
 
             if resposta == 1:
+                print("\n")
                 print(f"você tem R${estrato:.2f}")
                 
 
             elif resposta == 2:
+                print("\n")
                 deposito = float(input("Quantos reais você vai depositar? "))
                 deposito2 = deposito + estrato
                 print(f"você tem R${deposito2:.2f}")
 
             elif resposta == 3:
+                print("\n")
                 saque = float(input("Quantos reais você vai sacar? "))
                 sacar2 = estrato - saque
                 print(f"você tem R${sacar2:.2f}")
 
             elif resposta == 4:
+                print("\n")
                 print("1 - Cadastro")
                 print("2 - Editar Cadastro")
                 resposta2 = int(input("O que você deseja? "))
@@ -43,6 +47,7 @@ while resposta != 5 and senha == senha2:
                     sexo = str(input("Insira seu sexo: "))
 
                 elif resposta2 == 2:
+                    print("\n")
                     print(f"o nome do usuario é: {nome}")
                     print(f"o cpf do usuario é: {cpf}")
                     print(f"o telefone do usuario é: {telefone}")
@@ -57,10 +62,13 @@ while resposta != 5 and senha == senha2:
                     print(f"o novo sexo do usuario é: {sexo}")
 
             elif resposta == 5:
+                print("\n")
                 print("Saindo...")
 
             else:
+                print("\n")
                 print("RESPOSTA INVALIDA")
 
 else:
+    print("\n")
     print("ACESSO BLOQUEADO")

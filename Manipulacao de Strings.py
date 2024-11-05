@@ -76,7 +76,6 @@ print("tem a palavra maracuja? " , "maracuja" in a)
 a = "abacate"
 print("\nFunção count")
 print(a)
-print(a.count("a"))
 print(a.count())
 
 # Substring - direita (Pega as letras conforme os números q eu escrevo)

@@ -1,5 +1,5 @@
 # é um código que só é executado quando é chamado
-# geralmente serve para repetir tal parte, ao inves de fazer o código, "chama" esse código
+# geralmente serve para repetir tal parte, ao inves de fazer o código todo de novo, é só "chamar" esse código
 # sintaxe: def nome ():
 # {(o que estiver aqui dentro)}
 

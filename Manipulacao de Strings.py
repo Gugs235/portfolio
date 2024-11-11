@@ -46,7 +46,7 @@ a = "CHOCOLATE AZEDO"
 print(a)
 print(a.isupper())
 
-# Função replace (serve para trocar rodas as ocorrencias de uma string por outra em uma string)
+# Função replace (serve para trocar todas as ocorrencias de uma string por outra em uma string)
 a = "Chocolate Azedo"
 print("\nFunção replace")
 print(a)
@@ -76,7 +76,7 @@ print("tem a palavra maracuja? " , "maracuja" in a)
 a = "abacate"
 print("\nFunção count")
 print(a)
-print(a.count())
+print(a.count("b"))
 
 # Substring - direita (Pega as letras conforme os números q eu escrevo)
 a = "Abacate Azedo"

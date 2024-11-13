@@ -25,7 +25,5 @@ screenshot.save('screenshot.png')  # Salva a captura
 
 
     # 5. Exercícios (3 minutos)
-# Exercícios para os alunos:
-# Use o pyautogui para mover o mouse para uma posição aleatória na tela.
-# Automatize o processo de escrever "Python é divertido!" na tela com pyautogui.write().
+# Abra o bloco de notas, escreva, e feche a tela.
 

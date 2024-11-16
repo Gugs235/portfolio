@@ -1,10 +1,11 @@
 import pyautogui
 import time
-# descobrir a posição
-for i in range(2): #caso precise marcar a posição de varios lugares
-    time.sleep(4)
-    posicao = pyautogui.position()
-    print(f"Posição é {posicao}")
+
+# # descobrir a posição
+# for i in range(2): #caso precise marcar a posição de varios lugares
+#     time.sleep(4)
+#     posicao = pyautogui.position()
+#     print(f"Posição é {posicao}")
 
 
 # Pausa padrão entre comandos para dar tempo ao programa

@@ -1,5 +1,5 @@
-# Exercício 3: Aumente o volume no maximo, abra o Google Chrome na tela inicial, 
-# entre no YouTube e abra a música: "You Are Good - Israel & New Breed"
+# Exercício 3: Automatize o processo de escrever "Python é divertido!" na tela 
+# do bloco de notas.
 
 import pyautogui
 import time
@@ -10,47 +10,22 @@ import time
 #     print(f"Posição é {posicao}")
 
 # Pausa padrão entre comandos para dar tempo ao programa
-pyautogui.PAUSE = 2
+pyautogui.PAUSE = 0.5
 
-# Copiando o link
-#           https://youtu.be/5KiQDoWo5t4?si=pB5SpqYDdZ2O78zV
-pyautogui.moveTo(513, 446)
-pyautogui.click()
-pyautogui.mouseDown()
-pyautogui.moveTo(1045, 446)
-pyautogui.mouseUp()
-pyautogui.hotkey('ctrl', 'c')
-
-
-# aumentar o volume
-pyautogui.moveTo(1783, 1053)
-pyautogui.click()
-pyautogui.moveTo(1852, 1010)
-pyautogui.click()
-
-# abrir o Chrome
+# abrir o bloco de notas
 pyautogui.hotkey('win', 'r')
-pyautogui.write('chrome.exe')
+pyautogui.write('notepad.exe')
 pyautogui.press('enter')
-pyautogui.moveTo(1056, 592)
-pyautogui.click()
-pyautogui.press('f11')
 
+pyautogui.hotkey('alt', 'space')
+pyautogui.press('down')
+pyautogui.press('down')
+pyautogui.press('down')
+pyautogui.press('down')
+pyautogui.press('enter')
 
-# abrir o YouTube
-pyautogui.moveTo(795, 284)
-pyautogui.click(clicks=1, interval=0.25)
-pyautogui.write("https://www.youtube.com/")
-pyautogui.press("enter")
-
-# Pesquisando a música
-pyautogui.moveTo(761, 26)
-pyautogui.click(clicks=1, interval=0.25)
-pyautogui.hotkey('ctrl', 'v')
-pyautogui.press("enter")
-
-# abrindo a música
-pyautogui.moveTo(664, 187)
-pyautogui.click(clicks=1, interval=0.25)
-time.sleep(9)
-pyautogui.press("f")
+pyautogui.press('enter')
+pyautogui.press('enter')
+pyautogui.write('   Python e divertido!', interval=0.25)
+pyautogui.press('enter')
+pyautogui.write('   PyAutoGui e melhor ainda!', interval=0.25)

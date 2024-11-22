@@ -29,7 +29,7 @@
 
 
 class Vendedor():
-    def _init_(self, nome, vendas):
+    def __init__(self, nome, vendas):
         self.nome = nome
         self.vendas = vendas
 
@@ -37,3 +37,21 @@ vendedor1 = Vendedor("Ederson", 1000)
 print(vendedor1.nome)
 vendedor2 = Vendedor("Maria", 2000)
 print(vendedor2.nome)
+
+
+
+    # def mudar_canal(self, botao):
+    #     if botao == 'm':
+    #         print('mudar canal')
+    #     elif botao == 'v':
+    #         print('voltar canal')
+    #     else:
+    #         print("Valor invalido")
+
+    # def liga_desliga(self, botao):
+    #     if botao == 'l':
+    #         print('Ligando TV')
+    #     elif botao == 'd':
+    #         print('Desligando TV')
+    #     else:
+    #         print("Valor invalido")

@@ -1,7 +1,7 @@
 # Crie uma classe para implementar uma conta corrente.
 # A classe deve possuir os seguintes atributos: número da conta, nome do corretista e saldo.
 # Os métodos são os seguintes: alterar_nome, depósito e saque; 
-# No construtor, saldo é opcional, com valor default zero e os decimais atributos aão ovrigatórios.
+# No construtor, saldo é opcional, com valor default zero e os demais atributos são obrigatórios.
 
 class ContaBancaria:
     def __init__(self, numero_conta, nome_correntista, saldo=00.00):

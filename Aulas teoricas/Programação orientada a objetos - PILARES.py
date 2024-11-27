@@ -1,9 +1,4 @@
 # POO - Pilares
-# Heranaça
-# Encapsulamento
-# Polimorfismo
-# Abstração
-
 # Abstração - refere-se a mostrar apenas os detalhes essenciais de um objeto ou classe e esconder a complexidade desnecessária
 # Encapsulamento - foca em proteger os dados internos e controlar o aceso a esses dados
 # Heranaça - erda caracteristica - capta similiaridade entre classes dispondo em hierarquia 
@@ -27,3 +22,11 @@ calc.__num1
 
     # se eu chamar o atributo encapsulado ele da erro, mostra q não tem esse atributo
 
+# Herança - permite que uma classe herde dados e comportamentos de outra
+    # Vantagens
+        # Reuso
+        # Polimorfismo
+    # Definições
+        # Superclasse (classe base) / subclasse (classe derivada)
+        # Herença / extensão
+        # 

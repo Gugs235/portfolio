@@ -1,14 +1,18 @@
-# 3) faça um programa abra uma janela com um texto com seu nome centralizado e uma foto
+# 4) faça um programa abra uma janela com um texto com seu nome centralizado, uma foto e um button
 
+from PySide6 import QtWidgets
 from PySide6.QtWidgets import QApplication, QLabel, QMainWindow, QWidget, QVBoxLayout
 from PySide6.QtGui import QPixmap
 from PySide6.QtCore import Qt
 import sys
 
+
 class Janela(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        self.hello = ["Jhonathan", "Jhonathan Souza", "Jhonathan Souza Soares"]
+        self.button = QtWidgets.QPushButton("Botão")
         self.setWindowTitle("Minha Janela")
         self.setGeometry(300, 100, 500, 500)  # Define posição e tamanho da janela
 
@@ -33,8 +37,10 @@ class Janela(QMainWindow):
         imagem_label.setPixmap(pixmap)
         imagem_label.setAlignment(Qt.AlignCenter)
 
+        # Tela
         layout.addWidget(nome_label)
         layout.addWidget(imagem_label)
+        layout.addWidget(self.button)
 
         layout.addStretch(1)  # espaço em baixo
 

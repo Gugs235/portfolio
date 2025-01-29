@@ -9,7 +9,7 @@ class HelloWordWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle("Olá Mundo")
-        self.setGeometry(400, 100, 800, 200)
+        self.setGeometry(300, 100, 500, 500)
 
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
@@ -19,7 +19,8 @@ class HelloWordWindow(QMainWindow):
 
         label = QLabel("Jhonathan Souza Soares!", self)
         label.setAlignment(Qt.AlignCenter)  # Centraliza o texto
-        label.setStyleSheet("font-size: 4vw; font-weight: bold;")  # 4vw ajusta a fonte proporcional à tela
+        label.setStyleSheet("font-size: 24px; font-weight: bold;")  # 4vw ajusta a fonte proporcional à tela
+        
 
         layout.addWidget(label)
 

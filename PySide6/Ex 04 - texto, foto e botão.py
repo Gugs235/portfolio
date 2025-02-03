@@ -32,7 +32,7 @@ class Janela(QMainWindow):
 
         # Imagem
         imagem_label = QLabel(self)
-        pixmap = QPixmap(r"C:\Users\Reinaldo\OneDrive\Documentos\GitHub\portfolio\PySide6\PandaSamurai.png")  
+        pixmap = QPixmap(r"C:\Users\suporte\Documents\GitHub\portfolio\PySide6\PandaSamurai.png")  
         pixmap = pixmap.scaled(300, 300, Qt.KeepAspectRatio)  # Redimensionar a foto
         imagem_label.setPixmap(pixmap)
         imagem_label.setAlignment(Qt.AlignCenter)

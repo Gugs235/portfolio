@@ -20,7 +20,6 @@ class HelloWordWindow(QMainWindow):
         label = QLabel("Jhonathan Souza Soares!", self)
         label.setAlignment(Qt.AlignCenter)  # Centraliza o texto
         label.setStyleSheet("font-size: 24px; font-weight: bold;")  # 4vw ajusta a fonte proporcional à tela
-        
 
         layout.addWidget(label)
 

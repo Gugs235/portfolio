@@ -1,5 +1,8 @@
-create database atv4_escola3;
+# O código SQL cria um banco de dados chamado atv4_escola3 e define tabelas para armazenar informações sobre alunos, estados e cidades. 
+# Ele estabelece relações entre estados e cidades, vinculando cada cidade ao seu respectivo estado.
 
+
+create database atv4_escola3;
 use atv4_escola3;
 
 create table aluno (
@@ -7,8 +10,6 @@ create table aluno (
     nome varchar(50) not null,
     email varchar(50) not null
 );
-
-drop table Aluno;
 
 insert into aluno (matricula, nome, email) values (null, "Jhonathan", "jhon@soares"),
 (null, "Anne", "anne@primon"),
@@ -21,8 +22,6 @@ create table estado (
 	nome_estado varchar(50) not null,
     sigla varchar(50) not null
 );
-
-drop table estado;
 
 insert into estado (id, nome_estado, sigla) values (null, "Acre", "AC"),  
 (null, "Alagoas", "AL"),  
@@ -52,8 +51,6 @@ insert into estado (id, nome_estado, sigla) values (null, "Acre", "AC"),
 (null, "Sergipe", "SE"),  
 (null, "Tocantins", "TO"); 
 
-select * from aluno;
-
 create table cidade (
 	id int primary key auto_increment,
 	nome varchar(50) not null,
@@ -61,8 +58,6 @@ create table cidade (
     foreign key (id_estado)references estado (id),
     região varchar(50) not null
 );
-
-drop table cidade;
 
 insert into cidade (id, nome, id_estado, região) values  
 (null, "São Paulo", 12, "Sudeste"),  
@@ -86,5 +81,6 @@ insert into cidade (id, nome, id_estado, região) values
 (null, "Belém", 13, "Norte"),  
 (null, "Palmas", 23, "Norte");  
 
-select * from cidade;
 
+# ver uma tabela - select * from "nome da tabela";
+# apagar - drop table "nome da tabela";

@@ -43,7 +43,7 @@ create table pedidos (
 
 # "tabe" deveria ser "table"
 create table pedido_item (  
-    id_item_pedido int auto_increment not null,  # "idtem_pedido" deveria ser "item_pedido"
+    id_item_pedido int auto_increment not null,  # "idtem_pedido" deveria ser "id_item_pedido"
     num_pedido int not null,  
     qtde int not null,  
     valor_unit decimal(10,2),  

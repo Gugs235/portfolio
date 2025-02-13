@@ -27904,10 +27904,62 @@ INSERT INTO uf (cod_uf, sigla_uf, estado) VALUES
 select * from senso;
 
 # 1.Faça uma consulta selecionando somente o estado de Mato Grosso do Sul;
-select * from uf where estado = "Mato Grosso do Sul";
+select * from senso where estado = "Mato Grosso do Sul";
 
 # 2.Faça uma consulta selecionando somente cidades com menos de 1000 habitantes;
 select * from senso where populacao = 1000;
 
 # 3.Faça uma consulta selecionando somente as cidades de Terenos e Campo Grande;
-select * from senso where nome_mun ="Campo Grande" and nome_mun = "Terenos";
+SELECT estado, nome_mun, populacao FROM senso WHERE (nome_mun = "Campo Grande" AND estado = "Mato Grosso do Sul") OR nome_mun = "Terenos";
+
+# 4.Faça uma consulta selecionando somente as cidades com mais de 100 mil habitantes do estado de Mato Grosso do Sul;
+SELECT * FROM senso WHERE populacao > 100000 AND estado = 'Mato Grosso do Sul';
+
+# 5.Faça uma consulta apenas dos campos estado e nome_mun ordenando a coluna nome_mun;
+select estado, nome_mun from senso order by nome_mun;
+
+# 6.Faça uma consulta da cidade com maior PIB;
+select nome_mun,pib from senso where pib = (select max(pib) from senso);
+
+# 7.Faça uma consulta da cidade com maior PIB_PER_CAP;
+select nome_mun,PIB_PER_CAP from senso where PIB_PER_CAP = (select max(PIB_PER_CAP) from senso);
+
+# 8.Faça uma consulta da cidade com maior População;
+select nome_mun,populacao from senso where populacao = (select max(populacao) from senso);
+
+# 9.Faça uma consulta da cidade com menor População;
+select nome_mun,populacao from senso where populacao = (select min(populacao) from senso);
+
+# 10.Faça uma contagem de todos os registros;
+SELECT COUNT(*) FROM senso;
+
+# 11.Faça uma média do PIB;
+SELECT AVG(pib) FROM senso;
+
+# 12.Faça uma consulta das cidades que começam com a letra C;
+SELECT nome_mun FROM senso WHERE nome_mun LIKE 'C%';
+
+# 13.Efetue 10 consultas de sua escolha
+	# 1.Contar o número total de habitantes do banco
+SELECT SUM(populacao) AS total_habitantes FROM senso;
+
+	# 2.Listar os 10 estados mais populosos do Brasil
+SELECT estado, SUM(populacao) AS total_populacao  
+FROM senso  
+GROUP BY estado  
+ORDER BY total_populacao DESC  
+LIMIT 10;
+
+	# 4.Qual o estado com maior número de municípios?
+SELECT estado, COUNT(DISTINCT nome_mun) AS total_municipios  
+FROM senso  
+GROUP BY estado  
+ORDER BY nome_mun DESC  
+LIMIT 100;
+
+# 14. Faça uma consulta das cidades do Pará
+SELECT estado,nome_mun FROM senso WHERE estado = "Pará";
+
+# 15. Faça uma consulta das cidades do Amazonas
+SELECT estado,nome_mun FROM senso WHERE estado = "Amazonas";
+

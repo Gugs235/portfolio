@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="teste">
+    <file>PandaSamurai.png</file>
+    <file>PandaSamurai2.png</file>
+    <file>PandaSamurai3.png</file>
+  </qresource>
+</RCC>

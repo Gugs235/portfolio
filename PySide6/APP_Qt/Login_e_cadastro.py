@@ -18,6 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDockWidget, QFrame, QGridLayout,
     QLabel, QLineEdit, QPushButton, QSizePolicy,
     QWidget)
+import imagensLogin_rc
 
 class Ui_DockWidget(object):
     def setupUi(self, DockWidget):
@@ -37,15 +38,23 @@ class Ui_DockWidget(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.frame = QFrame(self.dockWidgetContents)
         self.frame.setObjectName(u"frame")
-        self.frame.setEnabled(True)
-        sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
-        self.frame.setSizePolicy(sizePolicy)
-        self.frame.setMouseTracking(False)
         self.frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout_4 = QGridLayout(self.frame)
+        self.frame_3 = QFrame(self.frame)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setEnabled(True)
+        self.frame_3.setGeometry(QRect(290, 150, 258, 282))
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.frame_3.sizePolicy().hasHeightForWidth())
+        self.frame_3.setSizePolicy(sizePolicy1)
+        self.frame_3.setMouseTracking(False)
+        self.frame_3.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Shadow.Raised)
+        self.gridLayout_4 = QGridLayout(self.frame_3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.gp_user = QFrame(self.frame)
+        self.gp_user = QFrame(self.frame_3)
         self.gp_user.setObjectName(u"gp_user")
         self.gp_user.setEnabled(True)
         sizePolicy.setHeightForWidth(self.gp_user.sizePolicy().hasHeightForWidth())
@@ -83,7 +92,24 @@ class Ui_DockWidget(object):
 
         self.gridLayout_4.addWidget(self.gp_user, 0, 0, 1, 1)
 
-        self.gp_senha = QFrame(self.frame)
+        self.Botao_entrar = QPushButton(self.frame_3)
+        self.Botao_entrar.setObjectName(u"Botao_entrar")
+        self.Botao_entrar.setEnabled(True)
+        sizePolicy.setHeightForWidth(self.Botao_entrar.sizePolicy().hasHeightForWidth())
+        self.Botao_entrar.setSizePolicy(sizePolicy)
+        self.Botao_entrar.setMaximumSize(QSize(300, 50))
+        font2 = QFont()
+        font2.setPointSize(16)
+        font2.setBold(True)
+        self.Botao_entrar.setFont(font2)
+        self.Botao_entrar.setStyleSheet(u"color: rgb(85, 170, 255);")
+        self.Botao_entrar.setIconSize(QSize(16, 16))
+        self.Botao_entrar.setAutoDefault(False)
+        self.Botao_entrar.setFlat(False)
+
+        self.gridLayout_4.addWidget(self.Botao_entrar, 2, 0, 1, 1)
+
+        self.gp_senha = QFrame(self.frame_3)
         self.gp_senha.setObjectName(u"gp_senha")
         self.gp_senha.setEnabled(True)
         sizePolicy.setHeightForWidth(self.gp_senha.sizePolicy().hasHeightForWidth())
@@ -119,25 +145,19 @@ class Ui_DockWidget(object):
 
         self.gridLayout_4.addWidget(self.gp_senha, 1, 0, 1, 1)
 
-        self.Botao_entrar = QPushButton(self.frame)
-        self.Botao_entrar.setObjectName(u"Botao_entrar")
-        self.Botao_entrar.setEnabled(True)
-        sizePolicy.setHeightForWidth(self.Botao_entrar.sizePolicy().hasHeightForWidth())
-        self.Botao_entrar.setSizePolicy(sizePolicy)
-        self.Botao_entrar.setMaximumSize(QSize(300, 50))
-        font2 = QFont()
-        font2.setPointSize(16)
-        font2.setBold(True)
-        self.Botao_entrar.setFont(font2)
-        self.Botao_entrar.setStyleSheet(u"color: rgb(85, 170, 255);")
-        self.Botao_entrar.setIconSize(QSize(16, 16))
-        self.Botao_entrar.setAutoDefault(False)
-        self.Botao_entrar.setFlat(False)
+        self.gridLayout_5 = QGridLayout(self.frame)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.label = QLabel(self.frame)
+        self.label.setObjectName(u"label")
+        self.label.setPixmap(QPixmap(u":/Login/fundo.jpg"))
+        self.label.setScaledContents(True)
 
-        self.gridLayout_4.addWidget(self.Botao_entrar, 2, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.label, 0, 0, 1, 1)
 
+        self.label.raise_()
+        self.frame_3.raise_()
 
-        self.gridLayout_3.addWidget(self.frame, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignVCenter)
+        self.gridLayout_3.addWidget(self.frame, 0, 0, 1, 1)
 
         DockWidget.setWidget(self.dockWidgetContents)
 
@@ -153,8 +173,9 @@ class Ui_DockWidget(object):
         DockWidget.setWindowTitle(QCoreApplication.translate("DockWidget", u"DockWidget", None))
         self.lineEdit_user.setText("")
         self.txt_user.setText(QCoreApplication.translate("DockWidget", u"Usuario", None))
+        self.Botao_entrar.setText(QCoreApplication.translate("DockWidget", u"Entrar", None))
         self.lineEdit_senha.setText("")
         self.txt_senha.setText(QCoreApplication.translate("DockWidget", u"Senha", None))
-        self.Botao_entrar.setText(QCoreApplication.translate("DockWidget", u"Entrar", None))
+        self.label.setText("")
     # retranslateUi
 

@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QDateEdit, QFrame, QGridLayout,
-    QLabel, QLineEdit, QMainWindow, QPushButton,
-    QRadioButton, QSizePolicy, QSpacerItem, QVBoxLayout,
+    QHBoxLayout, QLabel, QLineEdit, QMainWindow,
+    QPushButton, QRadioButton, QSizePolicy, QVBoxLayout,
     QWidget)
 import imagemTeste1_rc
 
@@ -25,20 +25,61 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(798, 596)
+        MainWindow.resize(1235, 567)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+        self.centralwidget.setStyleSheet(u"background-color: rgb(19, 41, 61);")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.frame_5 = QFrame(self.centralwidget)
-        self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setMinimumSize(QSize(150, 25))
-        self.frame_5.setMaximumSize(QSize(300, 50))
-        self.frame_5.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_5.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frame_5)
+        self.gp_Tudo = QFrame(self.centralwidget)
+        self.gp_Tudo.setObjectName(u"gp_Tudo")
+        font = QFont()
+        font.setPointSize(10)
+        self.gp_Tudo.setFont(font)
+        self.gp_Tudo.setFrameShape(QFrame.Shape.StyledPanel)
+        self.gp_Tudo.setFrameShadow(QFrame.Shadow.Raised)
+        self.gridLayout_10 = QGridLayout(self.gp_Tudo)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.CPF = QFrame(self.gp_Tudo)
+        self.CPF.setObjectName(u"CPF")
+        self.CPF.setFrameShape(QFrame.Shape.StyledPanel)
+        self.CPF.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_3 = QVBoxLayout(self.CPF)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.txt_CPF = QLabel(self.CPF)
+        self.txt_CPF.setObjectName(u"txt_CPF")
+        self.txt_CPF.setMinimumSize(QSize(52, 25))
+        self.txt_CPF.setMaximumSize(QSize(60, 30))
+        font1 = QFont()
+        font1.setPointSize(13)
+        self.txt_CPF.setFont(font1)
+        self.txt_CPF.setStyleSheet(u"color: rgb(232, 241, 242);")
+
+        self.verticalLayout_3.addWidget(self.txt_CPF)
+
+        self.imp_CPF = QLineEdit(self.CPF)
+        self.imp_CPF.setObjectName(u"imp_CPF")
+        self.imp_CPF.setMinimumSize(QSize(100, 30))
+        self.imp_CPF.setMaximumSize(QSize(250, 30))
+        font2 = QFont()
+        font2.setPointSize(17)
+        self.imp_CPF.setFont(font2)
+        self.imp_CPF.setStyleSheet(u"color: rgb(255, 255, 255);")
+
+        self.verticalLayout_3.addWidget(self.imp_CPF)
+
+
+        self.gridLayout_10.addWidget(self.CPF, 6, 8, 1, 1)
+
+        self.Entrar = QFrame(self.gp_Tudo)
+        self.Entrar.setObjectName(u"Entrar")
+        self.Entrar.setMinimumSize(QSize(150, 25))
+        self.Entrar.setMaximumSize(QSize(300, 50))
+        self.Entrar.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Entrar.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.Entrar)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.Botao_entrar = QPushButton(self.frame_5)
+        self.Botao_entrar = QPushButton(self.Entrar)
         self.Botao_entrar.setObjectName(u"Botao_entrar")
         self.Botao_entrar.setEnabled(True)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
@@ -48,11 +89,12 @@ class Ui_MainWindow(object):
         self.Botao_entrar.setSizePolicy(sizePolicy)
         self.Botao_entrar.setMinimumSize(QSize(150, 25))
         self.Botao_entrar.setMaximumSize(QSize(300, 50))
-        font = QFont()
-        font.setPointSize(16)
-        font.setBold(True)
-        self.Botao_entrar.setFont(font)
-        self.Botao_entrar.setStyleSheet(u"color: rgb(85, 170, 255);")
+        font3 = QFont()
+        font3.setPointSize(16)
+        font3.setBold(True)
+        self.Botao_entrar.setFont(font3)
+        self.Botao_entrar.setStyleSheet(u"color: rgb(11, 60, 88);\n"
+"background-color: rgb(36, 123, 160);")
         self.Botao_entrar.setIconSize(QSize(16, 16))
         self.Botao_entrar.setAutoDefault(False)
         self.Botao_entrar.setFlat(False)
@@ -60,231 +102,215 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.Botao_entrar)
 
 
-        self.gridLayout.addWidget(self.frame_5, 7, 3, 1, 1, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignBottom)
+        self.gridLayout_10.addWidget(self.Entrar, 9, 7, 1, 1, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignBottom)
 
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.Email = QFrame(self.gp_Tudo)
+        self.Email.setObjectName(u"Email")
+        self.Email.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Email.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_8 = QVBoxLayout(self.Email)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.txt_Email = QLabel(self.Email)
+        self.txt_Email.setObjectName(u"txt_Email")
+        self.txt_Email.setMinimumSize(QSize(52, 25))
+        self.txt_Email.setMaximumSize(QSize(60, 30))
+        font4 = QFont()
+        font4.setPointSize(13)
+        font4.setBold(False)
+        self.txt_Email.setFont(font4)
+        self.txt_Email.setStyleSheet(u"color: rgb(232, 241, 242);")
 
-        self.gridLayout.addItem(self.horizontalSpacer_3, 0, 5, 1, 1)
+        self.verticalLayout_8.addWidget(self.txt_Email)
 
-        self.frame = QFrame(self.centralwidget)
-        self.frame.setObjectName(u"frame")
-        self.frame.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout_2 = QGridLayout(self.frame)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.label = QLabel(self.frame)
-        self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(52, 20))
-        font1 = QFont()
-        font1.setPointSize(10)
-        font1.setBold(False)
-        self.label.setFont(font1)
+        self.imp_Email = QLineEdit(self.Email)
+        self.imp_Email.setObjectName(u"imp_Email")
+        self.imp_Email.setEnabled(True)
+        self.imp_Email.setMinimumSize(QSize(400, 30))
+        self.imp_Email.setMaximumSize(QSize(600, 30))
+        self.imp_Email.setFont(font2)
+        self.imp_Email.setStyleSheet(u"color: rgb(255, 255, 255);")
 
-        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 1)
-
-        self.lineEdit = QLineEdit(self.frame)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setMinimumSize(QSize(400, 0))
-        self.lineEdit.setMaximumSize(QSize(600, 20))
-
-        self.gridLayout_2.addWidget(self.lineEdit, 1, 0, 1, 1)
-
-
-        self.gridLayout.addWidget(self.frame, 1, 1, 1, 3)
-
-        self.frame_7 = QFrame(self.centralwidget)
-        self.frame_7.setObjectName(u"frame_7")
-        self.frame_7.setMaximumSize(QSize(100, 500))
-        self.frame_7.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_7.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout_7 = QGridLayout(self.frame_7)
-        self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.label_6 = QLabel(self.frame_7)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setMinimumSize(QSize(30, 15))
-        self.label_6.setMaximumSize(QSize(35, 15))
-        self.label_6.setFont(font1)
-
-        self.gridLayout_7.addWidget(self.label_6, 0, 0, 1, 1)
-
-        self.lineEdit_4 = QLineEdit(self.frame_7)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
-        self.lineEdit_4.setMinimumSize(QSize(50, 0))
-        self.lineEdit_4.setMaximumSize(QSize(50, 20))
-
-        self.gridLayout_7.addWidget(self.lineEdit_4, 1, 0, 1, 1)
+        self.verticalLayout_8.addWidget(self.imp_Email)
 
 
-        self.gridLayout.addWidget(self.frame_7, 3, 1, 1, 1)
+        self.gridLayout_10.addWidget(self.Email, 1, 7, 1, 1)
 
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.Nome = QFrame(self.gp_Tudo)
+        self.Nome.setObjectName(u"Nome")
+        self.Nome.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Nome.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout = QVBoxLayout(self.Nome)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.txt_nome = QLabel(self.Nome)
+        self.txt_nome.setObjectName(u"txt_nome")
+        self.txt_nome.setMinimumSize(QSize(52, 25))
+        self.txt_nome.setMaximumSize(QSize(60, 30))
+        self.txt_nome.setFont(font4)
+        self.txt_nome.setStyleSheet(u"color: rgb(232, 241, 242);")
 
-        self.gridLayout.addItem(self.horizontalSpacer_2, 7, 1, 1, 1)
+        self.verticalLayout.addWidget(self.txt_nome)
 
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.imp_nome = QLineEdit(self.Nome)
+        self.imp_nome.setObjectName(u"imp_nome")
+        self.imp_nome.setMinimumSize(QSize(400, 30))
+        self.imp_nome.setMaximumSize(QSize(600, 30))
+        self.imp_nome.setFont(font2)
+        self.imp_nome.setStyleSheet(u"color: rgb(255, 255, 255);")
 
-        self.gridLayout.addItem(self.horizontalSpacer_4, 0, 1, 1, 1)
-
-        self.frame_2 = QFrame(self.centralwidget)
-        self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout_3 = QGridLayout(self.frame_2)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.label_2 = QLabel(self.frame_2)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setMinimumSize(QSize(52, 20))
-        self.label_2.setMaximumSize(QSize(52, 20))
-        self.label_2.setFont(font1)
-
-        self.gridLayout_3.addWidget(self.label_2, 0, 0, 1, 1)
-
-        self.lineEdit_2 = QLineEdit(self.frame_2)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setMinimumSize(QSize(100, 0))
-        self.lineEdit_2.setMaximumSize(QSize(200, 20))
-
-        self.gridLayout_3.addWidget(self.lineEdit_2, 1, 0, 1, 1)
+        self.verticalLayout.addWidget(self.imp_nome)
 
 
-        self.gridLayout.addWidget(self.frame_2, 2, 1, 1, 1)
+        self.gridLayout_10.addWidget(self.Nome, 1, 2, 1, 1)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer, 7, 5, 1, 1)
-
-        self.txt_Cadastro = QLabel(self.centralwidget)
+        self.Cadastro = QFrame(self.gp_Tudo)
+        self.Cadastro.setObjectName(u"Cadastro")
+        self.Cadastro.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Cadastro.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_10 = QVBoxLayout(self.Cadastro)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.txt_Cadastro = QLabel(self.Cadastro)
         self.txt_Cadastro.setObjectName(u"txt_Cadastro")
-        font2 = QFont()
-        font2.setPointSize(20)
-        font2.setBold(True)
-        self.txt_Cadastro.setFont(font2)
+        font5 = QFont()
+        font5.setPointSize(20)
+        font5.setBold(True)
+        self.txt_Cadastro.setFont(font5)
+        self.txt_Cadastro.setStyleSheet(u"color: rgb(232, 241, 242);")
 
-        self.gridLayout.addWidget(self.txt_Cadastro, 0, 3, 1, 1, Qt.AlignmentFlag.AlignHCenter)
-
-        self.frame_8 = QFrame(self.centralwidget)
-        self.frame_8.setObjectName(u"frame_8")
-        self.frame_8.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_8.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout_8 = QGridLayout(self.frame_8)
-        self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.label_7 = QLabel(self.frame_8)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setMinimumSize(QSize(52, 20))
-        self.label_7.setFont(font1)
-
-        self.gridLayout_8.addWidget(self.label_7, 0, 0, 1, 1)
-
-        self.lineEdit_5 = QLineEdit(self.frame_8)
-        self.lineEdit_5.setObjectName(u"lineEdit_5")
-        self.lineEdit_5.setMinimumSize(QSize(400, 0))
-        self.lineEdit_5.setMaximumSize(QSize(600, 20))
-
-        self.gridLayout_8.addWidget(self.lineEdit_5, 1, 0, 1, 1)
+        self.verticalLayout_10.addWidget(self.txt_Cadastro)
 
 
-        self.gridLayout.addWidget(self.frame_8, 2, 3, 1, 3)
+        self.gridLayout_10.addWidget(self.Cadastro, 0, 7, 1, 1, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignTop)
 
-        self.frame_6 = QFrame(self.centralwidget)
-        self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setMaximumSize(QSize(16777215, 100))
-        self.frame_6.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_6.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout_6 = QGridLayout(self.frame_6)
-        self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.label_5 = QLabel(self.frame_6)
-        self.label_5.setObjectName(u"label_5")
+        self.Data_Nascimento = QFrame(self.gp_Tudo)
+        self.Data_Nascimento.setObjectName(u"Data_Nascimento")
+        self.Data_Nascimento.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Data_Nascimento.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.Data_Nascimento)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.txt_Data = QLabel(self.Data_Nascimento)
+        self.txt_Data.setObjectName(u"txt_Data")
+        self.txt_Data.setMinimumSize(QSize(172, 20))
+        self.txt_Data.setMaximumSize(QSize(172, 30))
+        self.txt_Data.setFont(font4)
+        self.txt_Data.setStyleSheet(u"color: rgb(232, 241, 242);")
 
-        self.gridLayout_6.addWidget(self.label_5, 0, 0, 1, 1)
+        self.verticalLayout_5.addWidget(self.txt_Data)
 
-        self.radioButton_3 = QRadioButton(self.frame_6)
-        self.radioButton_3.setObjectName(u"radioButton_3")
+        self.date_data = QDateEdit(self.Data_Nascimento)
+        self.date_data.setObjectName(u"date_data")
+        self.date_data.setMinimumSize(QSize(100, 30))
+        self.date_data.setMaximumSize(QSize(200, 30))
+        font6 = QFont()
+        font6.setPointSize(11)
+        self.date_data.setFont(font6)
+        self.date_data.setStyleSheet(u"color: rgb(255, 255, 255);")
 
-        self.gridLayout_6.addWidget(self.radioButton_3, 0, 1, 1, 1)
-
-        self.radioButton = QRadioButton(self.frame_6)
-        self.radioButton.setObjectName(u"radioButton")
-
-        self.gridLayout_6.addWidget(self.radioButton, 0, 2, 1, 1)
-
-        self.radioButton_2 = QRadioButton(self.frame_6)
-        self.radioButton_2.setObjectName(u"radioButton_2")
-
-        self.gridLayout_6.addWidget(self.radioButton_2, 0, 3, 1, 1)
-
-
-        self.gridLayout.addWidget(self.frame_6, 6, 1, 1, 3)
-
-        self.frame_4 = QFrame(self.centralwidget)
-        self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout_5 = QGridLayout(self.frame_4)
-        self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.label_4 = QLabel(self.frame_4)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMinimumSize(QSize(120, 20))
-        self.label_4.setMaximumSize(QSize(125, 20))
-        self.label_4.setFont(font1)
-
-        self.gridLayout_5.addWidget(self.label_4, 0, 0, 1, 1)
-
-        self.dateEdit = QDateEdit(self.frame_4)
-        self.dateEdit.setObjectName(u"dateEdit")
-        self.dateEdit.setMaximumSize(QSize(16777215, 20))
-
-        self.gridLayout_5.addWidget(self.dateEdit, 1, 0, 1, 1)
+        self.verticalLayout_5.addWidget(self.date_data)
 
 
-        self.gridLayout.addWidget(self.frame_4, 4, 1, 1, 3)
+        self.gridLayout_10.addWidget(self.Data_Nascimento, 6, 2, 1, 1)
 
-        self.frame_3 = QFrame(self.centralwidget)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setMaximumSize(QSize(16777215, 100))
-        self.frame_3.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout_4 = QGridLayout(self.frame_3)
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.label_3 = QLabel(self.frame_3)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setMinimumSize(QSize(52, 20))
-        self.label_3.setMaximumSize(QSize(52, 20))
-        self.label_3.setFont(font1)
+        self.Endereco = QFrame(self.gp_Tudo)
+        self.Endereco.setObjectName(u"Endereco")
+        self.Endereco.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Endereco.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_9 = QVBoxLayout(self.Endereco)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.txt_Endereco = QLabel(self.Endereco)
+        self.txt_Endereco.setObjectName(u"txt_Endereco")
+        self.txt_Endereco.setMinimumSize(QSize(120, 20))
+        self.txt_Endereco.setMaximumSize(QSize(125, 30))
+        self.txt_Endereco.setFont(font4)
+        self.txt_Endereco.setStyleSheet(u"color: rgb(232, 241, 242);")
 
-        self.gridLayout_4.addWidget(self.label_3, 0, 0, 1, 1)
+        self.verticalLayout_9.addWidget(self.txt_Endereco)
 
-        self.lineEdit_3 = QLineEdit(self.frame_3)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-        self.lineEdit_3.setMinimumSize(QSize(100, 0))
-        self.lineEdit_3.setMaximumSize(QSize(200, 20))
+        self.imp_endereco = QLineEdit(self.Endereco)
+        self.imp_endereco.setObjectName(u"imp_endereco")
+        self.imp_endereco.setMinimumSize(QSize(325, 30))
+        self.imp_endereco.setMaximumSize(QSize(300, 30))
+        self.imp_endereco.setFont(font2)
+        self.imp_endereco.setStyleSheet(u"color: rgb(255, 255, 255);")
 
-        self.gridLayout_4.addWidget(self.lineEdit_3, 1, 0, 1, 1)
-
-
-        self.gridLayout.addWidget(self.frame_3, 3, 2, 1, 2)
-
-        self.frame_9 = QFrame(self.centralwidget)
-        self.frame_9.setObjectName(u"frame_9")
-        self.frame_9.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_9.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout_9 = QGridLayout(self.frame_9)
-        self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.label_8 = QLabel(self.frame_9)
-        self.label_8.setObjectName(u"label_8")
-        self.label_8.setMinimumSize(QSize(69, 20))
-        self.label_8.setFont(font1)
-
-        self.gridLayout_9.addWidget(self.label_8, 0, 0, 1, 1)
-
-        self.lineEdit_6 = QLineEdit(self.frame_9)
-        self.lineEdit_6.setObjectName(u"lineEdit_6")
-        self.lineEdit_6.setMinimumSize(QSize(325, 0))
-        self.lineEdit_6.setMaximumSize(QSize(300, 20))
-
-        self.gridLayout_9.addWidget(self.lineEdit_6, 1, 0, 1, 1)
+        self.verticalLayout_9.addWidget(self.imp_endereco)
 
 
-        self.gridLayout.addWidget(self.frame_9, 5, 1, 1, 3)
+        self.gridLayout_10.addWidget(self.Endereco, 1, 8, 1, 1)
+
+        self.Telefone = QFrame(self.gp_Tudo)
+        self.Telefone.setObjectName(u"Telefone")
+        self.Telefone.setMaximumSize(QSize(16777215, 100))
+        self.Telefone.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Telefone.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_4 = QVBoxLayout(self.Telefone)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.txt_telefone = QLabel(self.Telefone)
+        self.txt_telefone.setObjectName(u"txt_telefone")
+        self.txt_telefone.setMinimumSize(QSize(52, 20))
+        self.txt_telefone.setMaximumSize(QSize(76, 30))
+        self.txt_telefone.setFont(font4)
+        self.txt_telefone.setStyleSheet(u"color: rgb(232, 241, 242);")
+
+        self.verticalLayout_4.addWidget(self.txt_telefone)
+
+        self.imp_telefone = QLineEdit(self.Telefone)
+        self.imp_telefone.setObjectName(u"imp_telefone")
+        self.imp_telefone.setMinimumSize(QSize(100, 30))
+        self.imp_telefone.setMaximumSize(QSize(250, 30))
+        self.imp_telefone.setFont(font2)
+        self.imp_telefone.setStyleSheet(u"color: rgb(255, 255, 255);")
+
+        self.verticalLayout_4.addWidget(self.imp_telefone)
+
+
+        self.gridLayout_10.addWidget(self.Telefone, 6, 7, 1, 1)
+
+        self.Sexo = QFrame(self.gp_Tudo)
+        self.Sexo.setObjectName(u"Sexo")
+        self.Sexo.setMaximumSize(QSize(16777215, 100))
+        self.Sexo.setStyleSheet(u"color: rgb(232, 241, 242);")
+        self.Sexo.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Sexo.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout = QHBoxLayout(self.Sexo)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.txt_Sexo = QLabel(self.Sexo)
+        self.txt_Sexo.setObjectName(u"txt_Sexo")
+        self.txt_Sexo.setMinimumSize(QSize(52, 25))
+        self.txt_Sexo.setMaximumSize(QSize(60, 30))
+        self.txt_Sexo.setFont(font1)
+
+        self.horizontalLayout.addWidget(self.txt_Sexo)
+
+        self.opc_Outr = QRadioButton(self.Sexo)
+        self.opc_Outr.setObjectName(u"opc_Outr")
+        self.opc_Outr.setMinimumSize(QSize(80, 25))
+        self.opc_Outr.setMaximumSize(QSize(80, 30))
+        self.opc_Outr.setFont(font1)
+
+        self.horizontalLayout.addWidget(self.opc_Outr)
+
+        self.opc_Femi = QRadioButton(self.Sexo)
+        self.opc_Femi.setObjectName(u"opc_Femi")
+        self.opc_Femi.setMinimumSize(QSize(80, 30))
+        self.opc_Femi.setMaximumSize(QSize(110, 30))
+        self.opc_Femi.setFont(font1)
+
+        self.horizontalLayout.addWidget(self.opc_Femi)
+
+        self.opc_Masc = QRadioButton(self.Sexo)
+        self.opc_Masc.setObjectName(u"opc_Masc")
+        self.opc_Masc.setMinimumSize(QSize(110, 30))
+        self.opc_Masc.setMaximumSize(QSize(110, 30))
+        self.opc_Masc.setFont(font1)
+        self.opc_Masc.setIconSize(QSize(16, 16))
+
+        self.horizontalLayout.addWidget(self.opc_Masc)
+
+
+        self.gridLayout_10.addWidget(self.Sexo, 8, 2, 2, 1)
+
+
+        self.gridLayout.addWidget(self.gp_Tudo, 2, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -298,18 +324,27 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.txt_CPF.setText(QCoreApplication.translate("MainWindow", u"CPF:", None))
         self.Botao_entrar.setText(QCoreApplication.translate("MainWindow", u"Entrar", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Nome:", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"DDD:", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"CPF:", None))
+        self.txt_Email.setText(QCoreApplication.translate("MainWindow", u"Email:", None))
+        self.txt_nome.setText(QCoreApplication.translate("MainWindow", u"Nome:", None))
         self.txt_Cadastro.setText(QCoreApplication.translate("MainWindow", u"Cadastro", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Email:", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Sexo:", None))
-        self.radioButton_3.setText(QCoreApplication.translate("MainWindow", u"Outro", None))
-        self.radioButton.setText(QCoreApplication.translate("MainWindow", u"Feminino", None))
-        self.radioButton_2.setText(QCoreApplication.translate("MainWindow", u"Masculino", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Data de nascimento", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Telefone:", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Endere\u00e7o:", None))
+        self.txt_Data.setText(QCoreApplication.translate("MainWindow", u"Data de nascimento:", None))
+        self.txt_Endereco.setText(QCoreApplication.translate("MainWindow", u"Endere\u00e7o:", None))
+        self.txt_telefone.setText(QCoreApplication.translate("MainWindow", u"Telefone:", None))
+        self.txt_Sexo.setText(QCoreApplication.translate("MainWindow", u"Sexo:", None))
+        self.opc_Outr.setText(QCoreApplication.translate("MainWindow", u"Outro", None))
+        self.opc_Femi.setText(QCoreApplication.translate("MainWindow", u"Feminino", None))
+        self.opc_Masc.setText(QCoreApplication.translate("MainWindow", u"Masculino", None))
     # retranslateUi
 
+
+
+if __name__ == "__main__":
+    import sys
+    app = QApplication(sys.argv)
+    MainWindow = QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec())

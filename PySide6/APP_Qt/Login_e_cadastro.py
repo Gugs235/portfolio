@@ -149,6 +149,7 @@ class Ui_MainWindow(object):
         self.lineEdit_user.setMinimumSize(150, 30)
         self.lineEdit_user.setMaximumSize(400, 50)
         self.lineEdit_user.setFont(font1)
+        self.lineEdit_user.text()
 
 
         # Define a cor do texto do usuário
@@ -189,14 +190,14 @@ class Ui_MainWindow(object):
         self.txt_user.setText("Usuário")
 
     def Cadastro(self):
-        correct_username = "Jss"
-        correct_password = "jss235"
+        user_correto = "Jss"
+        senha_correta = "jss235"
 
-        username = self.input_username.text()
-        password = self.input_password.text()
+        user = self.lineEdit_user.text()
+        senha = self.lineEdit_senha.text()
 
-        if username == correct_username and password == correct_password:
-            QMessageBox.information(self, "Login feito com sucesso", f"Bem-vindo, {username}!")
+        if user == user_correto and senha == senha_correta:
+            QMessageBox.information(self, "Login feito com sucesso", f"Bem-vindo, {user}!")
             self.open_cadastro_window()
         else:    
             QMessageBox.warning(self, "Erro no Login", "Usuário ou senha incorretos.")

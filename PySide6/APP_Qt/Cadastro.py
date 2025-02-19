@@ -21,7 +21,7 @@ from PySide6.QtWidgets import (QApplication, QDateEdit, QFrame, QGridLayout,
     QWidget)
 import imagemTeste1_rc
 
-class Ui_MainWindow(object):
+class Ui_Cadastro(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -325,6 +325,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.txt_CPF.setText(QCoreApplication.translate("MainWindow", u"CPF:", None))
+        self.imp_CPF.setInputMask(QCoreApplication.translate("MainWindow", u"000.000.000-00", None))
+        self.imp_CPF.setText(QCoreApplication.translate("MainWindow", u"..-", None))
         self.Botao_entrar.setText(QCoreApplication.translate("MainWindow", u"Entrar", None))
         self.txt_Email.setText(QCoreApplication.translate("MainWindow", u"Email:", None))
         self.txt_nome.setText(QCoreApplication.translate("MainWindow", u"Nome:", None))
@@ -332,6 +334,7 @@ class Ui_MainWindow(object):
         self.txt_Data.setText(QCoreApplication.translate("MainWindow", u"Data de nascimento:", None))
         self.txt_Endereco.setText(QCoreApplication.translate("MainWindow", u"Endere\u00e7o:", None))
         self.txt_telefone.setText(QCoreApplication.translate("MainWindow", u"Telefone:", None))
+        self.imp_telefone.setInputMask(QCoreApplication.translate("MainWindow", u"(00)00000-0000", None))
         self.txt_Sexo.setText(QCoreApplication.translate("MainWindow", u"Sexo:", None))
         self.opc_Outr.setText(QCoreApplication.translate("MainWindow", u"Outro", None))
         self.opc_Femi.setText(QCoreApplication.translate("MainWindow", u"Feminino", None))
@@ -340,11 +343,11 @@ class Ui_MainWindow(object):
 
 
 
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    MainWindow = QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec())
+# if __name__ == "__main__":
+#     import sys
+#     app = QApplication(sys.argv)
+#     MainWindow = QMainWindow()
+#     ui = Ui_Cadastro()
+#     ui.setupUi(MainWindow)
+#     MainWindow.show()
+#     sys.exit(app.exec())

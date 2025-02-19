@@ -90,6 +90,12 @@
             <property name="styleSheet">
              <string notr="true">color: rgb(255, 255, 255);</string>
             </property>
+            <property name="inputMask">
+             <string>000.000.000-00</string>
+            </property>
+            <property name="text">
+             <string>..-</string>
+            </property>
            </widget>
           </item>
          </layout>
@@ -523,6 +529,9 @@ background-color: rgb(36, 123, 160);</string>
             </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="inputMask">
+             <string>(00)00000-0000</string>
             </property>
            </widget>
           </item>

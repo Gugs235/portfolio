@@ -18,8 +18,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDateEdit, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow,
     QPushButton, QRadioButton, QSizePolicy, QVBoxLayout,
-    QWidget)
+    QWidget, QMessageBox)
 import imagemTeste1_rc
+from database import insert_user
 
 class Ui_Cadastro(object):
     def setupUi(self, MainWindow):
@@ -317,6 +318,7 @@ class Ui_Cadastro(object):
         self.retranslateUi(MainWindow)
 
         self.Botao_entrar.setDefault(False)
+        self.Botao_entrar.clicked.connect(self.cadastrar_usuario)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -340,6 +342,52 @@ class Ui_Cadastro(object):
         self.opc_Femi.setText(QCoreApplication.translate("MainWindow", u"Feminino", None))
         self.opc_Masc.setText(QCoreApplication.translate("MainWindow", u"Masculino", None))
     # retranslateUi
+
+    def cadastrar_usuario(self):
+        nome = self.imp_nome.text()
+        email = self.imp_Email.text()
+        cpf = self.imp_CPF.text()
+        telefone = self.imp_telefone.text()
+        endereco = self.imp_endereco.text()
+        data_nascimento = self.date_data.date().toString("yyyy-MM-dd")  # Formato de data para MySQL
+        sexo = "Masculino" if self.opc_Masc.isChecked() else "Feminino" if self.opc_Femi.isChecked() else "Outro"
+
+        # Insere o usuário no banco de dados
+        insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo)
+
+        # Exibe uma mensagem de sucesso
+        msg_box = QMessageBox(self)
+        msg_box.setStyleSheet("""
+            QMessageBox {
+                background-color: #2C3E50;
+                color: #ECF0F1;
+                font-size: 14pt;
+                border: 2px solid #3498DB;
+            }
+            QLabel {
+                background-color: transparent;
+                color: #ECF0F1;
+            }
+            QPushButton {
+                background-color: #3498DB;
+                color: white;
+                border-radius: 5px;
+                padding: 5px 10px;
+            }
+            QPushButton:hover {
+                background-color: #2980B9;
+            }
+        """)
+        
+
+        msg_box.setIcon(QMessageBox.Icon.Information)
+        msg_box.setText("Sucesso, Usuário cadastrado com sucesso!")
+        msg_box.exec()
+        # self.abrir_tela_cadastro()
+        self.close()  # Fecha a tela de login
+
+
+
 
 
 

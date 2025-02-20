@@ -318,7 +318,7 @@ class Ui_Cadastro(object):
         self.retranslateUi(MainWindow)
 
         self.Botao_entrar.setDefault(False)
-        self.Botao_entrar.clicked.connect(self.cadastrar_usuario)
+        self.Botao_entrar.clicked.connect(self.mostrar_mensagem_e_fechar)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -356,7 +356,7 @@ class Ui_Cadastro(object):
         insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo)
 
         # Exibe uma mensagem de sucesso
-        msg_box = QMessageBox(self)
+        msg_box = QMessageBox()
         msg_box.setStyleSheet("""
             QMessageBox {
                 background-color: #2C3E50;
@@ -378,24 +378,27 @@ class Ui_Cadastro(object):
                 background-color: #2980B9;
             }
         """)
+
+    def mostrar_mensagem_e_fechar(self):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Icon.Information)
+        msg.setText("Cadastro realizado com sucesso!")
+        msg.setWindowTitle("Sucesso")
+        msg.setStandardButtons(QMessageBox.StandardButton.Ok)
+        
+        resposta = msg.exec()  # Exibe a mensagem e espera resposta
+        
+        if resposta == QMessageBox.StandardButton.Ok:
+            self.QMainWindow.close()  # Fecha a janela principal
+
         
 
-        msg_box.setIcon(QMessageBox.Icon.Information)
-        msg_box.setText("Sucesso, Usuário cadastrado com sucesso!")
-        msg_box.exec()
-        # self.abrir_tela_cadastro()
-        self.close()  # Fecha a tela de login
 
-
-
-
-
-
-# if __name__ == "__main__":
-#     import sys
-#     app = QApplication(sys.argv)
-#     MainWindow = QMainWindow()
-#     ui = Ui_Cadastro()
-#     ui.setupUi(MainWindow)
-#     MainWindow.show()
-#     sys.exit(app.exec())
+if __name__ == "__main__":
+    import sys
+    app = QApplication(sys.argv)
+    MainWindow = QMainWindow()
+    ui = Ui_Cadastro()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec())

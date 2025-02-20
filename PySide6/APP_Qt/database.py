@@ -16,15 +16,15 @@ def create_connection():
         print(f"Erro ao conectar ao MySQL: {e}")
         return None
 
-def insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo):
+def insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora_cadastro):
     connection = create_connection()
     if connection:
         cursor = connection.cursor()
         query = '''
-            INSERT INTO usuarios (nome, email, cpf, telefone, endereco, data_nascimento, sexo)
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
+            INSERT INTO usuarios (nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora_cadastro)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s) 
         '''
-        cursor.execute(query, (nome, email, cpf, telefone, endereco, data_nascimento, sexo))
+        cursor.execute(query, (nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora_cadastro))
         connection.commit()
         cursor.close()
         connection.close()

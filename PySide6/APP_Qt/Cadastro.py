@@ -351,9 +351,12 @@ class Ui_Cadastro(object):
         endereco = self.imp_endereco.text()
         data_nascimento = self.date_data.date().toString("yyyy-MM-dd")  # Formato de data para MySQL
         sexo = "Masculino" if self.opc_Masc.isChecked() else "Feminino" if self.opc_Femi.isChecked() else "Outro"
+        #data e horario real em que foi cadastrado
+        data_hora = QDateTime.currentDateTime().toString("yyyy-MM-dd hh:mm:ss")
+
 
         # Insere o usuário no banco de dados
-        insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo)
+        insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora)
 
         # Exibe uma mensagem de sucesso
         msg_box = QMessageBox()
@@ -389,7 +392,8 @@ class Ui_Cadastro(object):
         resposta = msg.exec()  # Exibe a mensagem e espera resposta
         
         if resposta == QMessageBox.StandardButton.Ok:
-            self.QMainWindow.close()  # Fecha a janela principal
+            QCoreApplication.quit()  # Fecha a aplicação
+
 
         
 

@@ -184,10 +184,10 @@ class Ui_MainWindow(QMainWindow):  # Agora herda de QMainWindow
         self.cadastro_window.showMaximized()  # Exibe a tela de cadastro
 
 
-# # Executa a aplicação
-# if __name__ == "__main__":
-#     import sys
-#     app = QApplication(sys.argv)
-#     window = Ui_MainWindow()
-#     window.showMaximized()
-#     sys.exit(app.exec())
+# Executa a aplicação
+if __name__ == "__main__":
+    import sys
+    app = QApplication(sys.argv)
+    window = Ui_MainWindow()
+    window.showMaximized()
+    sys.exit(app.exec())

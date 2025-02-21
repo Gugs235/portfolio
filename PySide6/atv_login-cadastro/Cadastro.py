@@ -352,11 +352,11 @@ class Ui_Cadastro(object):
         data_nascimento = self.date_data.date().toString("yyyy-MM-dd")  # Formato de data para MySQL
         sexo = "Masculino" if self.opc_Masc.isChecked() else "Feminino" if self.opc_Femi.isChecked() else "Outro"
         #data e horario real em que foi cadastrado
-        data_hora = QDateTime.currentDateTime().toString("yyyy-MM-dd hh:mm:ss")
+        data_hora_cadastro = QDateTime.currentDateTime().toString("yyyy-MM-dd hh:mm:ss")
 
 
         # Insere o usuário no banco de dados
-        insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora)
+        insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora_cadastro)
 
         # Exibe uma mensagem de sucesso
         msg_box = QMessageBox()

@@ -66,8 +66,25 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: rgb(11, 60, 88);
-background-color: rgb(36, 123, 160);</string>
+          <string notr="true">#Botao_entrar{
+    background-color: #0b3c58; /* Cor normal */
+    color: #e8f1f2;
+    border-radius: 5px;
+    padding: 5px;
+    border: none; /* Remove a borda padrão, se houver */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: background-color 0.3s, transform 0.1s; /* Efeito suave */
+}
+
+#Botao_entrar:hover {
+    background-color: #1B98E0; /* Cor quando o mouse estiver sobre o botão */
+}
+
+#Botao_entrar:pressed {
+    background-color: #0a2a3f; /* Cor quando o botão for pressionado */
+    transform: scale(0.95); /* Efeito de leve redução para parecer um clique */
+}
+</string>
          </property>
          <property name="text">
           <string>Entrar</string>

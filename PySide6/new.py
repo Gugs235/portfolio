@@ -20,8 +20,8 @@ from PySide6.QtWidgets import (QApplication, QDateEdit, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow,
     QPushButton, QRadioButton, QSizePolicy, QSplitter,
     QVBoxLayout, QWidget, QMessageBox)
-import imagemTeste1_rc  # Importando recursos de imagem
-from database import insert_user  # Importando a função para inserir usuário no banco de dados
+# import imagemTeste1_rc  # Importando recursos de imagem
+# from database import insert_user  # Importando a função para inserir usuário no banco de dados
 from datetime import datetime  # Importando a classe datetime para manipulação de datas
 
 class Ui_Cadastro(object):
@@ -52,43 +52,6 @@ class Ui_Cadastro(object):
         # Criando um layout de grade para o frame
         self.gridLayout_10 = QGridLayout(self.gp_Tudo)
         self.gridLayout_10.setObjectName(u"gridLayout_10")
-
-        # Criando o frame para o campo de nome
-        self.Nome = QFrame(self.gp_Tudo)
-        self.Nome.setObjectName(u"Nome")
-        self.Nome.setFrameShape(QFrame.Shape.StyledPanel)
-        self.Nome.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout = QVBoxLayout(self.Nome)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-
-        # Criando o rótulo para o campo de nome
-        self.txt_nome = QLabel(self.Nome)
-        self.txt_nome.setObjectName(u"txt_nome")
-        self.txt_nome.setMinimumSize(QSize(52, 25))
-        self.txt_nome.setMaximumSize(QSize(60, 30))
-        font1 = QFont()
-        font1.setPointSize(13)
-        self.txt_nome.setFont(font1)
-        self.txt_nome.setStyleSheet(u"color: rgb(232, 241, 242);")
-
-        # Adicionando o rótulo ao layout vertical
-        self.verticalLayout.addWidget(self.txt_nome)
-
-        # Criando o campo de entrada para nome
-        self.imp_nome = QLineEdit(self.Nome)
-        self.imp_nome.setObjectName(u"imp_nome")
-        self.imp_nome.setMinimumSize(QSize(400, 30))
-        self.imp_nome.setMaximumSize(QSize(600, 30))
-        font2 = QFont()
-        font2.setPointSize(17)
-        self.imp_nome.setFont(font2)
-        self.imp_nome.setStyleSheet(u"color: rgb(255, 255, 255);")
-
-        # Adicionando o campo de entrada ao layout vertical
-        self.verticalLayout.addWidget(self.imp_nome)
-
-        # Adicionando o frame de nome ao layout de grade
-        self.gridLayout_10.addWidget(self.Nome, 1, 2, 1, 1)
 
         # Criando o frame para o campo de email
         self.Email = QFrame(self.gp_Tudo)
@@ -128,75 +91,6 @@ class Ui_Cadastro(object):
 
         # Adicionando o frame de email ao layout de grade
         self.gridLayout_10.addWidget(self.Email, 1, 7, 1, 1)
-
-        # Criando o frame para o campo de endereço
-        self.Endereco = QFrame(self.gp_Tudo)
-        self.Endereco.setObjectName(u"Endereco")
-        self.Endereco.setFrameShape(QFrame.Shape.StyledPanel)
-        self.Endereco.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_9 = QVBoxLayout(self.Endereco)
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-
-        # Criando o rótulo para o campo de endereço
-        self.txt_Endereco = QLabel(self.Endereco)
-        self.txt_Endereco.setObjectName(u"txt_Endereco")
-        self.txt_Endereco.setMinimumSize(QSize(120, 20))
-        self.txt_Endereco.setMaximumSize(QSize(125, 30))
-        self.txt_Endereco.setFont(font1)
-        self.txt_Endereco.setStyleSheet(u"color: rgb(232, 241, 242);")
-
-        # Adicionando o rótulo ao layout vertical
-        self.verticalLayout_9.addWidget(self.txt_Endereco)
-
-        # Criando o campo de entrada para endereço
-        self.imp_endereco = QLineEdit(self.Endereco)
-        self.imp_endereco.setObjectName(u"imp_endereco")
-        self.imp_endereco.setMinimumSize(QSize(325, 30))
-        self.imp_endereco.setMaximumSize(QSize(300, 30))
-        self.imp_endereco.setFont(font2)
-        self.imp_endereco.setStyleSheet(u"color: rgb(255, 255, 255);")
-
-        # Adicionando o campo de entrada ao layout vertical
-        self.verticalLayout_9.addWidget(self.imp_endereco)
-
-        # Adicionando o frame de endereço ao layout de grade
-        self.gridLayout_10.addWidget(self.Endereco, 1, 8, 1, 1)
-
-        # Criando o frame para o campo de data de nascimento
-        self.Data_Nascimento = QFrame(self.gp_Tudo)
-        self.Data_Nascimento.setObjectName(u"Data_Nascimento")
-        self.Data_Nascimento.setFrameShape(QFrame.Shape.StyledPanel)
-        self.Data_Nascimento.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_5 = QVBoxLayout(self.Data_Nascimento)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-
-        # Criando o rótulo para o campo de data de nascimento
-        self.txt_Data = QLabel(self.Data_Nascimento)
-        self.txt_Data.setObjectName(u"txt_Data")
-        self.txt_Data.setMinimumSize(QSize(172, 20))
-        self.txt_Data.setMaximumSize(QSize(180, 30))
-        font1.setPointSize(13)
-        self.txt_Data.setFont(font1)
-        self.txt_Data.setStyleSheet(u"color: rgb(232, 241, 242);")
-
-        # Adicionando o rótulo ao layout vertical
-        self.verticalLayout_5.addWidget(self.txt_Data)
-
-        # Criando o campo de entrada para data de nascimento
-        self.date_data = QDateEdit(self.Data_Nascimento)
-        self.date_data.setObjectName(u"date_data")
-        self.date_data.setMinimumSize(QSize(100, 30))
-        self.date_data.setMaximumSize(QSize(200, 30))
-        font5 = QFont()
-        font5.setPointSize(11)
-        self.date_data.setFont(font5)
-        self.date_data.setStyleSheet(u"color: rgb(255, 255, 255);")
-
-        # Adicionando o campo de entrada ao layout vertical
-        self.verticalLayout_5.addWidget(self.date_data)
-
-        # Adicionando o frame de data de nascimento ao layout de grade
-        self.gridLayout_10.addWidget(self.Data_Nascimento, 6, 2, 1, 1)
 
         # Criando o frame para o campo de telefone
         self.Telefone = QFrame(self.gp_Tudo)
@@ -269,6 +163,157 @@ class Ui_Cadastro(object):
         # Adicionando o frame CPF ao layout de grade
         self.gridLayout_10.addWidget(self.CPF, 6, 8, 1, 1)
 
+        # Criando o frame para o campo de nome
+        self.Nome = QFrame(self.gp_Tudo)
+        self.Nome.setObjectName(u"Nome")
+        self.Nome.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Nome.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout = QVBoxLayout(self.Nome)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+
+        # Criando o rótulo para o campo de nome
+        self.txt_nome = QLabel(self.Nome)
+        self.txt_nome.setObjectName(u"txt_nome")
+        self.txt_nome.setMinimumSize(QSize(52, 25))
+        self.txt_nome.setMaximumSize(QSize(60, 30))
+        self.txt_nome.setFont(font1)
+        self.txt_nome.setStyleSheet(u"color: rgb(232, 241, 242);")
+
+        # Adicionando o rótulo ao layout vertical
+        self.verticalLayout.addWidget(self.txt_nome)
+
+        # Criando o campo de entrada para nome
+        self.imp_nome = QLineEdit(self.Nome)
+        self.imp_nome.setObjectName(u"imp_nome")
+        self.imp_nome.setMinimumSize(QSize(400, 30))
+        self.imp_nome.setMaximumSize(QSize(600, 30))
+        self.imp_nome.setFont(font2)
+        self.imp_nome.setStyleSheet(u"color: rgb(255, 255, 255);")
+
+        # Adicionando o campo de entrada ao layout vertical
+        self.verticalLayout.addWidget(self.imp_nome)
+
+        # Adicionando o frame de nome ao layout de grade
+        self.gridLayout_10.addWidget(self.Nome, 1, 2, 1, 1)
+
+        # Criando o frame para o campo de data de nascimento
+        self.Data_Nascimento = QFrame(self.gp_Tudo)
+        self.Data_Nascimento.setObjectName(u"Data_Nascimento")
+        self.Data_Nascimento.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Data_Nascimento.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.Data_Nascimento)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+
+        # Criando o rótulo para o campo de data de nascimento
+        self.txt_Data = QLabel(self.Data_Nascimento)
+        self.txt_Data.setObjectName(u"txt_Data")
+        self.txt_Data.setMinimumSize(QSize(172, 20))
+        self.txt_Data.setMaximumSize(QSize(172, 30))
+        font1.setPointSize(17)
+        self.txt_Data.setFont(font1)
+        self.txt_Data.setStyleSheet(u"color: rgb(232, 241, 242);")
+
+        # Adicionando o rótulo ao layout vertical
+        self.verticalLayout_5.addWidget(self.txt_Data)
+
+        # Criando o campo de entrada para data de nascimento
+        self.date_data = QDateEdit(self.Data_Nascimento)
+        self.date_data.setObjectName(u"date_data")
+        self.date_data.setMinimumSize(QSize(100, 30))
+        self.date_data.setMaximumSize(QSize(200, 30))
+        font5 = QFont()
+        font5.setPointSize(11)
+        self.date_data.setFont(font5)
+        self.date_data.setStyleSheet(u"color: rgb(255, 255, 255);")
+
+        # Adicionando o campo de entrada ao layout vertical
+        self.verticalLayout_5.addWidget(self.date_data)
+
+        # Adicionando o frame de data de nascimento ao layout de grade
+        self.gridLayout_10.addWidget(self.Data_Nascimento, 6, 2, 1, 1)
+
+        # Criando o frame para o campo de sexo
+        self.Sexo = QFrame(self.gp_Tudo)
+        self.Sexo.setObjectName(u"Sexo")
+        self.Sexo.setMaximumSize(QSize(16777215, 100))
+        self.Sexo.setStyleSheet(u"color: rgb(232, 241, 242);")
+        self.Sexo.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Sexo.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_11 = QVBoxLayout(self.Sexo)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+
+        # Criando o rótulo para o campo de sexo
+        self.txt_Sexo = QLabel(self.Sexo)
+        self.txt_Sexo.setObjectName(u"txt_Sexo")
+        self.txt_Sexo.setMinimumSize(QSize(52, 25))
+        self.txt_Sexo.setMaximumSize(QSize(60, 30))
+        self.txt_Sexo.setFont(font1)
+
+        # Adicionando o rótulo ao layout vertical
+        self.verticalLayout_11.addWidget(self.txt_Sexo)
+
+        # Criando as opções de sexo
+        self.splitter = QSplitter(self.Sexo)
+        self.splitter.setObjectName(u"splitter")
+        self.splitter.setOrientation(Qt.Orientation.Horizontal)
+        self.opc_Femi = QRadioButton(self.splitter)
+        self.opc_Femi.setObjectName(u"opc_Femi")
+        self.opc_Femi.setMinimumSize(QSize(100, 25))
+        self.opc_Femi.setMaximumSize(QSize(80, 30))
+        self.opc_Femi.setFont(font1)
+        self.splitter.addWidget(self.opc_Femi)
+        self.opc_Masc = QRadioButton(self.splitter)
+        self.opc_Masc.setObjectName(u"opc_Masc")
+        self.opc_Masc.setMinimumSize(QSize(110, 30))
+        self.opc_Masc.setMaximumSize(QSize(110, 30))
+        self.opc_Masc.setFont(font1)
+        self.opc_Masc.setIconSize(QSize(16, 16))
+        self.splitter.addWidget(self.opc_Masc)
+        self.opc_Outro = QRadioButton(self.splitter)
+        self.opc_Outro.setObjectName(u"opc_Outro")
+        self.opc_Outro.setMinimumSize(QSize(80, 30))
+        self.opc_Outro.setMaximumSize(QSize(110, 30))
+        self.opc_Outro.setFont(font1)
+        self.splitter.addWidget(self.opc_Outro)
+
+        self.verticalLayout_11.addWidget(self.splitter)
+
+        # Adicionando o frame de sexo ao layout de grade
+        self.gridLayout_10.addWidget(self.Sexo, 8, 2, 2, 1)
+
+        # Criando o frame para o campo de endereço
+        self.Endereco = QFrame(self.gp_Tudo)
+        self.Endereco.setObjectName(u"Endereco")
+        self.Endereco.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Endereco.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_9 = QVBoxLayout(self.Endereco)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+
+        # Criando o rótulo para o campo de endereço
+        self.txt_Endereco = QLabel(self.Endereco)
+        self.txt_Endereco.setObjectName(u"txt_Endereco")
+        self.txt_Endereco.setMinimumSize(QSize(120, 20))
+        self.txt_Endereco.setMaximumSize(QSize(125, 30))
+        self.txt_Endereco.setFont(font1)
+        self.txt_Endereco.setStyleSheet(u"color: rgb(232, 241, 242);")
+
+        # Adicionando o rótulo ao layout vertical
+        self.verticalLayout_9.addWidget(self.txt_Endereco)
+
+        # Criando o campo de entrada para endereço
+        self.imp_endereco = QLineEdit(self.Endereco)
+        self.imp_endereco.setObjectName(u"imp_endereco")
+        self.imp_endereco.setMinimumSize(QSize(325, 30))
+        self.imp_endereco.setMaximumSize(QSize(300, 30))
+        self.imp_endereco.setFont(font2)
+        self.imp_endereco.setStyleSheet(u"color: rgb(255, 255, 255);")
+
+        # Adicionando o campo de entrada ao layout vertical
+        self.verticalLayout_9.addWidget(self.imp_endereco)
+
+        # Adicionando o frame de endereço ao layout de grade
+        self.gridLayout_10.addWidget(self.Endereco, 1, 8, 1, 1)
+
         # Criando o frame para o campo de senha
         self.Nova_Senha = QFrame(self.gp_Tudo)
         self.Nova_Senha.setObjectName(u"Nova_Senha")
@@ -334,106 +379,6 @@ class Ui_Cadastro(object):
 
         # Adicionando o frame de confirmar senha ao layout de grade
         self.gridLayout_10.addWidget(self.Confirmar_Senha, 9, 7, 1, 1)
-
-        # Criando o frame para o campo de sexo
-        self.Sexo = QFrame(self.gp_Tudo)
-        self.Sexo.setObjectName(u"Sexo")
-        self.Sexo.setMaximumSize(QSize(16777215, 100))
-        self.Sexo.setStyleSheet(u"color: rgb(232, 241, 242);")
-        self.Sexo.setFrameShape(QFrame.Shape.StyledPanel)
-        self.Sexo.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_11 = QVBoxLayout(self.Sexo)
-        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
-
-        # Criando o rótulo para o campo de sexo
-        self.txt_Sexo = QLabel(self.Sexo)
-        self.txt_Sexo.setObjectName(u"txt_Sexo")
-        self.txt_Sexo.setMinimumSize(QSize(52, 25))
-        self.txt_Sexo.setMaximumSize(QSize(60, 30))
-        font4 = QFont()
-        font4.setPointSize(13)
-        self.txt_Sexo.setFont(font4)
-
-        # Adicionando o rótulo ao layout vertical
-        self.verticalLayout_11.addWidget(self.txt_Sexo)
-
-        # Criando as opções de sexo
-        self.splitter = QSplitter(self.Sexo)
-        self.splitter.setObjectName(u"splitter")
-        self.splitter.setOrientation(Qt.Orientation.Horizontal)
-        self.opc_Femi = QRadioButton(self.splitter)
-        self.opc_Femi.setObjectName(u"opc_Femi")
-        self.opc_Femi.setMinimumSize(QSize(100, 25))
-        self.opc_Femi.setMaximumSize(QSize(80, 30))
-        self.opc_Femi.setFont(font4)
-        font4.setPointSize(13)
-        self.splitter.addWidget(self.opc_Femi)
-        self.opc_Masc = QRadioButton(self.splitter)
-        self.opc_Masc.setObjectName(u"opc_Masc")
-        self.opc_Masc.setMinimumSize(QSize(110, 30))
-        self.opc_Masc.setMaximumSize(QSize(110, 30))
-        self.opc_Masc.setFont(font4)
-        font4.setPointSize(13)
-        self.opc_Masc.setIconSize(QSize(16, 16))
-        self.splitter.addWidget(self.opc_Masc)
-        self.opc_Outro = QRadioButton(self.splitter)
-        self.opc_Outro.setObjectName(u"opc_Outro")
-        self.opc_Outro.setMinimumSize(QSize(80, 30))
-        self.opc_Outro.setMaximumSize(QSize(110, 30))
-        self.opc_Outro.setFont(font4)
-        font4.setPointSize(13)
-        self.splitter.addWidget(self.opc_Outro)
-
-        self.verticalLayout_11.addWidget(self.splitter)
-
-        # Adicionando o frame de sexo ao layout de grade
-        self.gridLayout_10.addWidget(self.Sexo, 9, 8, 1, 1)
-
-        # Criando o frame para o botão de adicionar foto
-        self.Foto = QFrame(self.gp_Tudo)
-        self.Foto.setObjectName(u"Foto")
-        self.Foto.setFrameShape(QFrame.Shape.StyledPanel)
-        self.Foto.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout = QHBoxLayout(self.Foto)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.Botao_Add_Foto = QPushButton(self.Foto)
-        self.Botao_Add_Foto.setObjectName(u"Botao_Add_Foto")
-        self.Botao_Add_Foto.setMinimumSize(QSize(200, 25))
-        self.Botao_Add_Foto.setMaximumSize(QSize(300, 35))
-        font6 = QFont()
-        self.Botao_Add_Foto.setFont(font6)
-        font6.setPointSize(13)
-        self.Botao_Add_Foto.setStyleSheet(u"#Botao_Add_Foto {\n"
-"    background-color: #0b3c58; /* Cor normal */\n"
-"    color: #e8f1f2;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px;\n"
-"    border: none; /* Remove a borda padr\u00e3o, se houver */\n"
-"    cursor: pointer; /* Muda o cursor para indicar que \u00e9 clic\u00e1vel */\n"
-"    transition: background-color 0.3s, transform 0.1s; /* Efeito suave */\n"
-"}\n"
-"\n"
-"#Botao_Add_Foto:hover {\n"
-"    background-color: #1B98E0; /* Cor quando o mouse estiver sobre o bot\u00e3o */\n"
-"}\n"
-"\n"
-"#Botao_Add_Foto:pressed {\n"
-"    background-color: #0a2a3f; /* Cor quando o bot\u00e3o for pressionado */\n"
-"    transform: scale(0.95); /* Efeito de leve redu\u00e7\u00e3o para parecer um clique */\n"
-"}\n"
-"")
-
-        self.horizontalLayout.addWidget(self.Botao_Add_Foto)
-
-        self.label_3 = QLabel(self.Foto)
-        self.label_3.setObjectName(u"label_3")
-
-        self.horizontalLayout.addWidget(self.label_3)
-
-        # Adicionando o frame da foto ao layout de grade
-        self.gridLayout_10.addWidget(self.Foto, 10, 2, 1, 1)
-
-        self.gridLayout.addWidget(self.gp_Tudo, 0, 0, 1, 1)
 
         # Criando o frame para o botão de entrar
         self.Entrar = QFrame(self.gp_Tudo)
@@ -510,6 +455,47 @@ class Ui_Cadastro(object):
         # Adicionando o frame do título ao layout de grade
         self.gridLayout_10.addWidget(self.Cadastro, 0, 7, 1, 1, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignTop)
 
+        # Criando o frame para o botão de adicionar foto
+        self.Foto = QFrame(self.gp_Tudo)
+        self.Foto.setObjectName(u"Foto")
+        self.Foto.setFrameShape(QFrame.Shape.StyledPanel)
+        self.Foto.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout = QHBoxLayout(self.Foto)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.Botao_Add_Foto = QPushButton(self.Foto)
+        self.Botao_Add_Foto.setObjectName(u"Botao_Add_Foto")
+        self.Botao_Add_Foto.setMinimumSize(QSize(200, 25))
+        self.Botao_Add_Foto.setMaximumSize(QSize(300, 35))
+        self.Botao_Add_Foto.setFont(font6)
+        self.Botao_Add_Foto.setStyleSheet(u"#Botao_Add_Foto {\n"
+"    background-color: #0b3c58; /* Cor normal */\n"
+"    color: #e8f1f2;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    border: none; /* Remove a borda padr\u00e3o, se houver */\n"
+"    cursor: pointer; /* Muda o cursor para indicar que \u00e9 clic\u00e1vel */\n"
+"    transition: background-color 0.3s, transform 0.1s; /* Efeito suave */\n"
+"}\n"
+"\n"
+"#Botao_Add_Foto:hover {\n"
+"    background-color: #1B98E0; /* Cor quando o mouse estiver sobre o bot\u00e3o */\n"
+"}\n"
+"\n"
+"#Botao_Add_Foto:pressed {\n"
+"    background-color: #0a2a3f; /* Cor quando o bot\u00e3o for pressionado */\n"
+"    transform: scale(0.95); /* Efeito de leve redu\u00e7\u00e3o para parecer um clique */\n"
+"}\n"
+"")
+
+        self.horizontalLayout.addWidget(self.Botao_Add_Foto)
+
+        self.label_3 = QLabel(self.Foto)
+        self.label_3.setObjectName(u"label_3")
+
+        self.horizontalLayout.addWidget(self.label_3)
+
+        # Adicionando o frame da foto ao layout de grade
+        self.gridLayout_10.addWidget(self.Foto, 10, 2, 1, 1)
 
         # Adicionando o frame principal ao layout de grade
         self.gridLayout.addWidget(self.gp_Tudo, 1, 0, 1, 1)
@@ -567,7 +553,7 @@ class Ui_Cadastro(object):
         print("Tentando cadastrar:", nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora_cadastro)
 
         # Insere o usuário no banco de dados
-        insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora_cadastro)
+        # insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora_cadastro)
 
         # Exibe uma mensagem de sucesso
         msg_box = QMessageBox()

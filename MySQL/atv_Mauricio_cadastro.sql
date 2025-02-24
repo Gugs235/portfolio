@@ -9,8 +9,11 @@ CREATE TABLE usuarios (
     telefone VARCHAR(15) NOT NULL,
     endereco VARCHAR(255) NOT NULL,
     data_nascimento DATE NOT NULL,
-    sexo ENUM('Masculino', 'Feminino', 'Outro') NOT NULL
+    sexo ENUM('Masculino', 'Feminino', 'Outro') NOT NULL,
+    data_hora_cadastro datetime
 );
 
 drop database atv_Mauricio_cadastro;
 
+select * from usuarios;
+DESC usuarios;

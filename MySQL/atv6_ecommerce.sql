@@ -38,7 +38,7 @@ create table pedidos (
     status varchar(50) not null,  
     id_cli int,  
     constraint primary key (num_pedido),  
-    constraint foreign key (id_cli) references clientes(id_cli)  
+    constraint foreign key (id_cli) references clientes(id_cli)
 );
 
 # "tabe" deveria ser "table"

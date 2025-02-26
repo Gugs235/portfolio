@@ -564,19 +564,24 @@ class Ui_Cadastro(object):
         cpf = self.imp_CPF.text().strip()
         telefone = self.imp_telefone.text().strip()
         endereco = self.imp_endereco.text().strip()
-        data_nascimento = self.date_data_nascimento.text().strip()
+        data_nascimento = self.date_data.text().strip()
         senha = self.Input_Nova_Senha.text().strip()
         confirmar_senha = self.Input_Confirmar_Senha.text().strip()
         sexo = "Masculino" if self.opc_Masc.isChecked() else "Feminino" if self.opc_Femi.isChecked() else "Outro"
         data_hora_cadastro = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         # Validações
-        #Verificar se o campo 'nome' está vazio ou contém caracteres que não são letras, permitindo que o usuário insira tanto letras maiúsculas quanto minúsculas e espaço entre as palavras.
-        if not nome or not re.match(r'^[a-zA-Z ]+$', nome):
-            self.mostrar_mensagem_alerta("Por favor, insira um nome válido. \nContendo apenas letras e espaços.")
-            return        
+        if not nome:
+            self.mostrar_mensagem_alerta("O campo Nome é obrigatório.")
+            return
         if not email or not self.validar_email(email):
             self.mostrar_mensagem_alerta("Por favor, insira um e-mail válido.")
+            return
+        if not cpf or not self.validar_cpf(cpf):
+            self.mostrar_mensagem_alerta("Por favor, insira um CPF válido.")
+            return
+        if not telefone:
+            self.mostrar_mensagem_alerta("O campo Telefone é obrigatório.")
             return
         if not endereco:
             self.mostrar_mensagem_alerta("O campo Endereço é obrigatório.")
@@ -584,25 +589,11 @@ class Ui_Cadastro(object):
         if not data_nascimento:
             self.mostrar_mensagem_alerta("O campo Data de Nascimento é obrigatório.")
             return
-        data_nascimento = datetime.strptime(data_nascimento, "%d/%m/%Y")
-        idade = datetime.now().year - data_nascimento.year - ((datetime.now().month, datetime.now().day) < (data_nascimento.month, data_nascimento.day))
-        if idade < 18:
-            self.mostrar_mensagem_alerta("Você precisa ter mais de 18 anos para se cadastrar.")
-            return
-        if not telefone or not self.validar_telefone(telefone):
-            self.mostrar_mensagem_alerta("O campo Telefone é obrigatório.")
-            return
-        if not cpf or not self.validar_cpf(cpf):
-            self.mostrar_mensagem_alerta("Por favor, insira um CPF válido.")
-            return
         if not senha:
             self.mostrar_mensagem_alerta("O campo Nova Senha é obrigatório.")
             return
         if senha != confirmar_senha:
             self.mostrar_mensagem_alerta("As senhas não coincidem.")
-            return
-        if not sexo or not self.opc_Femi.isChecked() and not self.opc_Masc.isChecked() and not self.opc_Outro.isChecked():
-            self.mostrar_mensagem_alerta("O campo Sexo é obrigatório.")
             return
 
         # Exibindo os dados que estão sendo cadastrados

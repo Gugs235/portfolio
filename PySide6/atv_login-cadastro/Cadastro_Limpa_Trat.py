@@ -571,10 +571,9 @@ class Ui_Cadastro(object):
         data_hora_cadastro = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         # Validações
-        #Verificar se o campo 'nome' está vazio ou contém caracteres que não são letras, permitindo que o usuário insira tanto letras maiúsculas quanto minúsculas e espaço entre as palavras.
-        if not nome or not re.match(r'^[a-zA-Z ]+$', nome):
-            self.mostrar_mensagem_alerta("Por favor, insira um nome válido. \nContendo apenas letras e espaços.")
-            return        
+        if not nome or not nome.isalpha():
+            self.mostrar_mensagem_alerta("Por favor, insira um nome válido.")
+            return
         if not email or not self.validar_email(email):
             self.mostrar_mensagem_alerta("Por favor, insira um e-mail válido.")
             return
@@ -611,15 +610,23 @@ class Ui_Cadastro(object):
         try:
             # Insere o usuário no banco de dados
             insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora_cadastro)
+            self.limpar_campos()  # Limpa os campos após o cadastro
             self.mostrar_mensagem_e_fechar()  # Chama a função para mostrar a mensagem de sucesso
         except Exception as e:
             self.mostrar_mensagem_alerta(f"Erro ao cadastrar usuário: {str(e)}")
 
-        # Exibindo os dados que estão sendo cadastrados
-        print("Tentando cadastrar:", nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora_cadastro)
-
-        # Insere o usuário no banco de dados
-        insert_user(nome, email, cpf, telefone, endereco, data_nascimento, sexo, data_hora_cadastro)
+    def limpar_campos(self):
+        self.imp_nome.clear()
+        self.imp_Email.clear()
+        self.imp_CPF.clear()
+        self.imp_telefone.clear()
+        self.imp_endereco.clear()
+        self.date_data_nascimento.clear()
+        self.Input_Nova_Senha.clear()
+        self.Input_Confirmar_Senha.clear()
+        self.opc_Masc.setChecked(False)
+        self.opc_Femi.setChecked(False)
+        self.opc_Outro.setChecked(False)
 
         # Exibe uma mensagem de sucesso
         self.mostrar_mensagem_e_fechar()  # Chama a função para mostrar a mensagem de sucesso
@@ -676,8 +683,8 @@ class Ui_Cadastro(object):
         
         resposta = msg.exec() # Exibe a mensagem e espera resposta
         
-        if resposta == QMessageBox.StandardButton.Ok:
-            QCoreApplication.quit()  # Fecha a aplicação
+        # if resposta == QMessageBox.StandardButton.Ok:
+        #     QCoreApplication.quit()  # Fecha a aplicação
 
 
 # Código principal para executar a aplicação

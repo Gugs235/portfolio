@@ -1,5 +1,5 @@
-create database atv10_cadastro;
-use atv10_cadastro;
+create database atv11_cadastro2;
+use atv11_cadastro2;
 
 create table escolaridade (
 id_escolaridade int primary key auto_increment,
@@ -165,8 +165,44 @@ INSERT INTO cadastro_cliente (nome, cpf, rg, telefone, id_escolaridade, id_raca,
 ('Rafael Lima', '963.852.741-00', 'SC-96.385.274', '48987654327', 4, 1, 19, 1, 1),
 ('Luana Costa', '741.852.963-00', 'PA-74.185.296', '91987654328', 5, 2, 20, 2, 1);
 
+set SQL_SAFE_UPDATES = 0;
 
-SELECT id, nome, id_cidade FROM cadastro_cliente;
+update cidade
+set nome_cidade = case
+    when nome_cidade >= 'A' and nome_cidade < 'M' then 'Abaixo de M'
+    else 'Acima de M'
+end
+where id_cidade is not null;
+
+update estado
+set nome_estado = case
+    when nome_estado in ('Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão', 'Minas Gerais', 'Pará', 'Paraíba', 'Pernambuco', 'Piauí', 'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Santa Catarina', 'São Paulo', 'Sergipe') then 'Sudeste/Nordeste'
+    when nome_estado in ('Mato Grosso', 'Mato Grosso do Sul', 'Goiás', 'Distrito Federal') then 'Centro Oeste'
+    when nome_estado in ('Acre', 'Amapá', 'Amazonas', 'Pará', 'Rondônia', 'Roraima', 'Tocantins') then 'Norte'
+    when nome_estado in ('Bahia', 'Sergipe', 'Alagoas', 'Pernambuco', 'Paraíba', 'Rio Grande do Norte', 'Ceará', 'Maranhão') then 'Nordeste'
+    when nome_estado in ('São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Espírito Santo') then 'Sudeste'
+    when nome_estado in ('Paraná', 'Santa Catarina', 'Rio Grande do Sul') then 'Sul'
+    else nome_estado
+end
+where id_estado is not null;
+
+update nacionalidade
+set nome_nacionalidade = 'Fora do Brasil'
+where nome_nacionalidade = 'Estrangeira';
+
+update raca
+set nome_raca = 'seres humanos'
+where id_raca is not null;
+
+update escolaridade
+set nome_escolaridade = case
+    when nome_escolaridade like 'Ensino Fundamental%' or nome_escolaridade like 'Ensino Médio%' then 'ensino básico'
+    else 'ensino avançado'
+end
+where id_escolaridade is not null;
+
+set SQL_SAFE_UPDATES = 1;
+
 
 # apresentar um select com apenas o nome e a cidade
 select cadastro_cliente.nome, cidade.nome_cidade 

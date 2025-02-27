@@ -689,3 +689,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)  # Configura a interface na janela principal
     MainWindow.show()  # Exibe a janela
     sys.exit(app.exec())  # Executa a aplicação
+    

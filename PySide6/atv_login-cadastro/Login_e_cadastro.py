@@ -1,26 +1,15 @@
 # -*- coding: utf-8 -*-
 
-################################################################################
-## Form gerado a partir da leitura do arquivo UI 'Login_e_cadastro.ui'
-##
-## Criado pelo: Qt User Interface Compiler versão 6.8.1
-##
-## AVISO! Todas as alterações feitas neste arquivo serão perdidas ao recompilar o arquivo UI!
-################################################################################
-
-# -*- coding: utf-8 -*-
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QFont, QCursor
+from PySide6.QtGui import QFont, QCursor, QPixmap
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QLabel,
                                QLineEdit, QMainWindow, QPushButton, QWidget, QMessageBox)
+from Cadastro import Ui_Cadastro
+import imgn_rc
+from database import get_user
+import os
 
-
-from Cadastro import Ui_Cadastro  # Aqui, importa a tela de cadastro
-
-import imgn_rc  # Importa recursos da interface, como imagens
-
-
-class Ui_MainWindow(QMainWindow):  # Agora herda de QMainWindow
+class Ui_MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi()
@@ -45,55 +34,34 @@ class Ui_MainWindow(QMainWindow):  # Agora herda de QMainWindow
         self.gridLayout_4 = QGridLayout(self.frame_3)
         self.gridLayout_4.setObjectName("gridLayout_4")
 
-        # Botão de login
+        # Definindo font1 antes de usá-lo
+        font1 = QFont()
+        font1.setPointSize(17)
+
         self.Botao_entrar = QPushButton(self.frame_3)
         self.Botao_entrar.setObjectName("Botao_entrar")
         self.Botao_entrar.setMaximumSize(300, 50)
-        self.Botao_entrar.clicked.connect(self.Cadastro)
+        self.Botao_entrar.clicked.connect(self.validar_login)
 
         font = QFont()
         font.setPointSize(16)
         font.setBold(True)
         self.Botao_entrar.setFont(font)
-        self.Botao_entrar.setStyleSheet("color: rgb(11, 60, 88);\n"
-                                        "background-color: rgb(36, 123, 160);")
-
+        self.Botao_entrar.setStyleSheet(u"#Botao_entrar {\n"
+"    background-color: #0b3c58;\n"
+"    color: #e8f1f2;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"}\n"
+"#Botao_entrar:hover {\n"
+"    background-color: #1B98E0;\n"
+"}\n"
+"#Botao_entrar:pressed {\n"
+"    background-color: #0a2a3f;\n"
+"    transform: scale(0.95);\n"
+"}")
         self.gridLayout_4.addWidget(self.Botao_entrar, 2, 0, 1, 1)
 
-        # Campo de senha
-        self.gp_senha = QFrame(self.frame_3)
-        self.gp_senha.setObjectName("gp_senha")
-        self.gp_senha.setFrameShape(QFrame.Shape.StyledPanel)
-        self.gp_senha.setFrameShadow(QFrame.Shadow.Raised)
-
-        self.gridLayout = QGridLayout(self.gp_senha)
-        self.gridLayout.setObjectName("gridLayout")
-
-        self.lineEdit_senha = QLineEdit(self.gp_senha)
-        self.lineEdit_senha.setObjectName("lineEdit_senha")
-        self.lineEdit_senha.setMinimumSize(170, 30)
-        self.lineEdit_senha.setMaximumSize(400, 50)
-
-        font1 = QFont()
-        font1.setPointSize(17)
-        self.lineEdit_senha.setFont(font1)
-        self.lineEdit_senha.setCursor(QCursor(Qt.CursorShape.SizeHorCursor))
-        self.lineEdit_senha.setStyleSheet("color: rgb(255, 255, 255);")
-        self.lineEdit_senha.setEchoMode(QLineEdit.EchoMode.Password)
-
-        self.gridLayout.addWidget(self.lineEdit_senha, 1, 0, 1, 1)
-
-        self.txt_senha = QLabel(self.gp_senha)
-        self.txt_senha.setObjectName("txt_senha")
-        self.txt_senha.setFont(font1)
-        self.txt_senha.setStyleSheet("color: rgb(232, 241, 242);")
-        self.txt_senha.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.gridLayout.addWidget(self.txt_senha, 0, 0, 1, 1)
-
-        self.gridLayout_4.addWidget(self.gp_senha, 1, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter)
-
-        # Campo de usuário
         self.gp_user = QFrame(self.frame_3)
         self.gp_user.setObjectName("gp_user")
         self.gp_user.setFrameShape(QFrame.Shape.StyledPanel)
@@ -106,25 +74,48 @@ class Ui_MainWindow(QMainWindow):  # Agora herda de QMainWindow
         self.lineEdit_user.setObjectName("lineEdit_user")
         self.lineEdit_user.setMinimumSize(150, 30)
         self.lineEdit_user.setMaximumSize(400, 50)
-        self.lineEdit_user.setFont(font1)
+        self.lineEdit_user.setFont(font1)  # Usando font1 aqui
         self.lineEdit_user.setStyleSheet("color: rgb(255, 255, 255);")
-
         self.gridLayout_2.addWidget(self.lineEdit_user, 1, 0, 1, 1)
 
         self.txt_user = QLabel(self.gp_user)
         self.txt_user.setObjectName("txt_user")
-        self.txt_user.setFont(font1)
+        self.txt_user.setFont(font1)  # Usando font1 aqui
         self.txt_user.setStyleSheet("color: rgb(232, 241, 242);")
         self.txt_user.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
         self.gridLayout_2.addWidget(self.txt_user, 0, 0, 1, 1)
 
         self.gridLayout_4.addWidget(self.gp_user, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter)
 
+        self.gp_senha = QFrame(self.frame_3)
+        self.gp_senha.setObjectName("gp_senha")
+        self.gp_senha.setFrameShape(QFrame.Shape.StyledPanel)
+        self.gp_senha.setFrameShadow(QFrame.Shadow.Raised)
+
+        self.gridLayout = QGridLayout(self.gp_senha)
+        self.gridLayout.setObjectName("gridLayout")
+
+        self.lineEdit_senha = QLineEdit(self.gp_senha)
+        self.lineEdit_senha.setObjectName("lineEdit_senha")
+        self.lineEdit_senha.setMinimumSize(170, 30)
+        self.lineEdit_senha.setMaximumSize(400, 50)
+        self.lineEdit_senha.setFont(font1)  # Usando font1 aqui
+        self.lineEdit_senha.setCursor(QCursor(Qt.CursorShape.IBeamCursor))
+        self.lineEdit_senha.setStyleSheet("color: rgb(255, 255, 255);")
+        self.lineEdit_senha.setEchoMode(QLineEdit.EchoMode.Password)
+        self.gridLayout.addWidget(self.lineEdit_senha, 1, 0, 1, 1)
+
+        self.txt_senha = QLabel(self.gp_senha)
+        self.txt_senha.setObjectName("txt_senha")
+        self.txt_senha.setFont(font1)  # Usando font1 aqui
+        self.txt_senha.setStyleSheet("color: rgb(232, 241, 242);")
+        self.txt_senha.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.gridLayout.addWidget(self.txt_senha, 0, 0, 1, 1)
+
+        self.gridLayout_4.addWidget(self.gp_senha, 1, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter)
         self.gridLayout_3.addWidget(self.frame_3, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter)
 
         self.setCentralWidget(self.centralwidget)
-
         self.retranslateUi()
 
     def retranslateUi(self):
@@ -133,14 +124,11 @@ class Ui_MainWindow(QMainWindow):  # Agora herda de QMainWindow
         self.txt_senha.setText("Senha")
         self.txt_user.setText("Usuário")
 
-
-    def Cadastro(self):
-        user_correto = "Jss"
-        senha_correta = "jss235"
-
-        user = self.lineEdit_user.text()
+    def validar_login(self):
+        nome = self.lineEdit_user.text().strip()
         senha = self.lineEdit_senha.text()
 
+        usuario = get_user(nome, senha)
         msg_box = QMessageBox(self)
         msg_box.setStyleSheet("""
             QMessageBox {
@@ -164,27 +152,34 @@ class Ui_MainWindow(QMainWindow):  # Agora herda de QMainWindow
             }
         """)
 
-        if user == user_correto and senha == senha_correta:
+        if usuario:
+            nome_usuario = usuario["nome"]
+            foto = usuario["foto"]
             msg_box.setIcon(QMessageBox.Icon.Information)
-            msg_box.setWindowTitle("Login feito com sucesso")
-            msg_box.setText(f"Bem-vindo, {user}!")
+            msg_box.setWindowTitle("Login Bem-Sucedido")
+            msg_box.setText(f"Bem-vindo, {nome_usuario}!")
             msg_box.exec()
-            self.abrir_tela_cadastro()
-            self.close()  # Fecha a tela de login
+            self.abrir_tela_cadastro(nome_usuario, foto)
+            self.close()
         else:
             msg_box.setIcon(QMessageBox.Icon.Warning)
             msg_box.setWindowTitle("Erro no Login")
-            msg_box.setText("Usuário ou senha incorretos.")
+            msg_box.setText("Nome de usuário ou senha incorretos.")
             msg_box.exec()
 
-    def abrir_tela_cadastro(self):
-        self.cadastro_window = QMainWindow()  # Cria uma nova janela para o cadastro
-        self.ui_cadastro = Ui_Cadastro()  # Instancia a classe de Cadastro
-        self.ui_cadastro.setupUi(self.cadastro_window)  # Configura a UI na nova janela
-        self.cadastro_window.showMaximized()  # Exibe a tela de cadastro
+    def abrir_tela_cadastro(self, nome, foto):
+        self.cadastro_window = QMainWindow()
+        self.ui_cadastro = Ui_Cadastro()
+        self.ui_cadastro.setupUi(self.cadastro_window)
+        
+        if foto and os.path.exists(foto):
+            pixmap = QPixmap(foto)
+            self.ui_cadastro.pos_img.setPixmap(pixmap)
+            self.ui_cadastro.pos_img.setScaledContents(True)
+        
+        self.ui_cadastro.txt_Cadastro.setText(f"Bem-vindo, {nome}!")
+        self.cadastro_window.showMaximized()
 
-
-# Executa a aplicação
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)

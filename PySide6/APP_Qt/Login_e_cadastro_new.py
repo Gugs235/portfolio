@@ -101,7 +101,7 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setPointSize(17)
         self.lineEdit_senha.setFont(font1)
-        self.lineEdit_senha.setCursor(QCursor(Qt.CursorShape.SizeHorCursor))
+        self.lineEdit_senha.setCursor(QCursor(Qt.CursorShape.IBeamCursor))
         self.lineEdit_senha.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.lineEdit_senha.setInputMethodHints(Qt.InputMethodHint.ImhHiddenText|Qt.InputMethodHint.ImhNoAutoUppercase|Qt.InputMethodHint.ImhNoPredictiveText|Qt.InputMethodHint.ImhSensitiveData)
         self.lineEdit_senha.setEchoMode(QLineEdit.EchoMode.Password)

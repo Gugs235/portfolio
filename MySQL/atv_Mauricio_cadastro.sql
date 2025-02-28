@@ -17,3 +17,4 @@ drop database atv_Mauricio_cadastro;
 
 select * from usuarios;
 DESC usuarios;
+ALTER TABLE usuarios ADD COLUMN foto VARCHAR(255);

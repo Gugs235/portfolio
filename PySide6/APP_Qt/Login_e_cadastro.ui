@@ -153,7 +153,7 @@
              </font>
             </property>
             <property name="cursor">
-             <cursorShape>SizeHorCursor</cursorShape>
+             <cursorShape>IBeamCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(255, 255, 255);</string>

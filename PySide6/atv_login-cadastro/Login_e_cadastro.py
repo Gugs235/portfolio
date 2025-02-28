@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QSize
 from PySide6.QtGui import QFont, QCursor, QPixmap
 from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QLabel,
                                QLineEdit, QMainWindow, QPushButton, QWidget, QMessageBox)
 from Cadastro import Ui_Cadastro
 import imgn_rc
-from database import get_user
+from database import get_user, get_user_photo
 import os
 
 class Ui_MainWindow(QMainWindow):
@@ -34,9 +34,16 @@ class Ui_MainWindow(QMainWindow):
         self.gridLayout_4 = QGridLayout(self.frame_3)
         self.gridLayout_4.setObjectName("gridLayout_4")
 
-        # Definindo font1 antes de usá-lo
         font1 = QFont()
         font1.setPointSize(17)
+
+        # Adicionando a label para a foto acima do campo "Usuário"
+        self.foto_label = QLabel(self.frame_3)
+        self.foto_label.setObjectName(u"foto_label")
+        self.foto_label.setMinimumSize(QSize(100, 100))
+        self.foto_label.setMaximumSize(QSize(150, 150))
+        self.foto_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.gridLayout_4.addWidget(self.foto_label, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter)
 
         self.Botao_entrar = QPushButton(self.frame_3)
         self.Botao_entrar.setObjectName("Botao_entrar")
@@ -60,7 +67,7 @@ class Ui_MainWindow(QMainWindow):
 "    background-color: #0a2a3f;\n"
 "    transform: scale(0.95);\n"
 "}")
-        self.gridLayout_4.addWidget(self.Botao_entrar, 2, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.Botao_entrar, 3, 0, 1, 1)
 
         self.gp_user = QFrame(self.frame_3)
         self.gp_user.setObjectName("gp_user")
@@ -74,18 +81,19 @@ class Ui_MainWindow(QMainWindow):
         self.lineEdit_user.setObjectName("lineEdit_user")
         self.lineEdit_user.setMinimumSize(150, 30)
         self.lineEdit_user.setMaximumSize(400, 50)
-        self.lineEdit_user.setFont(font1)  # Usando font1 aqui
+        self.lineEdit_user.setFont(font1)
         self.lineEdit_user.setStyleSheet("color: rgb(255, 255, 255);")
+        self.lineEdit_user.textChanged.connect(self.atualizar_foto)  # Conectar ao atualizar_foto
         self.gridLayout_2.addWidget(self.lineEdit_user, 1, 0, 1, 1)
 
         self.txt_user = QLabel(self.gp_user)
         self.txt_user.setObjectName("txt_user")
-        self.txt_user.setFont(font1)  # Usando font1 aqui
+        self.txt_user.setFont(font1)
         self.txt_user.setStyleSheet("color: rgb(232, 241, 242);")
         self.txt_user.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.gridLayout_2.addWidget(self.txt_user, 0, 0, 1, 1)
 
-        self.gridLayout_4.addWidget(self.gp_user, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter)
+        self.gridLayout_4.addWidget(self.gp_user, 1, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter)
 
         self.gp_senha = QFrame(self.frame_3)
         self.gp_senha.setObjectName("gp_senha")
@@ -99,20 +107,21 @@ class Ui_MainWindow(QMainWindow):
         self.lineEdit_senha.setObjectName("lineEdit_senha")
         self.lineEdit_senha.setMinimumSize(170, 30)
         self.lineEdit_senha.setMaximumSize(400, 50)
-        self.lineEdit_senha.setFont(font1)  # Usando font1 aqui
+        self.lineEdit_senha.setFont(font1)
         self.lineEdit_senha.setCursor(QCursor(Qt.CursorShape.IBeamCursor))
         self.lineEdit_senha.setStyleSheet("color: rgb(255, 255, 255);")
         self.lineEdit_senha.setEchoMode(QLineEdit.EchoMode.Password)
+        self.lineEdit_senha.textChanged.connect(self.atualizar_foto)  # Conectar ao atualizar_foto
         self.gridLayout.addWidget(self.lineEdit_senha, 1, 0, 1, 1)
 
         self.txt_senha = QLabel(self.gp_senha)
         self.txt_senha.setObjectName("txt_senha")
-        self.txt_senha.setFont(font1)  # Usando font1 aqui
+        self.txt_senha.setFont(font1)
         self.txt_senha.setStyleSheet("color: rgb(232, 241, 242);")
         self.txt_senha.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.gridLayout.addWidget(self.txt_senha, 0, 0, 1, 1)
 
-        self.gridLayout_4.addWidget(self.gp_senha, 1, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter)
+        self.gridLayout_4.addWidget(self.gp_senha, 2, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter)
         self.gridLayout_3.addWidget(self.frame_3, 0, 0, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignVCenter)
 
         self.setCentralWidget(self.centralwidget)
@@ -123,6 +132,24 @@ class Ui_MainWindow(QMainWindow):
         self.Botao_entrar.setText("Entrar")
         self.txt_senha.setText("Senha")
         self.txt_user.setText("Usuário")
+
+    def atualizar_foto(self):
+        nome = self.lineEdit_user.text().strip()
+        senha = self.lineEdit_senha.text().strip()
+
+        # Só carrega a foto se ambos os campos estiverem preenchidos
+        if nome and senha:
+            usuario = get_user(nome, senha)
+            if usuario and usuario["foto"] and os.path.exists(usuario["foto"]):
+                pixmap = QPixmap(usuario["foto"])
+                self.foto_label.setPixmap(pixmap)
+                self.foto_label.setScaledContents(True)
+                print(f"Foto carregada para {nome}: {usuario['foto']}")
+            else:
+                self.foto_label.clear()
+                print(f"Nenhuma foto válida ou usuário não encontrado para {nome}")
+        else:
+            self.foto_label.clear()
 
     def validar_login(self):
         nome = self.lineEdit_user.text().strip()
@@ -186,3 +213,4 @@ if __name__ == "__main__":
     window = Ui_MainWindow()
     window.showMaximized()
     sys.exit(app.exec())
+    

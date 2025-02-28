@@ -1,14 +1,5 @@
 # -*- coding: utf-8 -*-
 
-################################################################################
-## Form generated from reading UI file 'Cadastro.ui'
-##
-## Created by: Qt User Interface Compiler version 6.8.1
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-
-# Importando as bibliotecas necessárias do PySide6
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -20,30 +11,26 @@ from PySide6.QtWidgets import (QApplication, QDateEdit, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow,
     QPushButton, QRadioButton, QSizePolicy, QSplitter,
     QVBoxLayout, QWidget, QMessageBox, QFileDialog)
-import imagemTeste1_rc  # Importando recursos de imagem
-from database import insert_user  # Importando a função para inserir usuário no banco de dados
-from datetime import datetime  # Importando a classe datetime para manipulação de datas
-import re  # Importando a biblioteca para expressões regulares
+import imagemTeste1_rc
+from database import insert_user
+from datetime import datetime
+import re
 import os
 import shutil
 
 class Ui_Cadastro(object):
     def setupUi(self, MainWindow):
-        # Configurando a janela principal
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1235, 567)
 
-        # Criando o widget central
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"background-color: rgb(19, 41, 61);")
 
-        # Criando um layout de grade para o widget central
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
 
-        # Criando um frame para conter todos os elementos do cadastro
         self.gp_Tudo = QFrame(self.centralwidget)
         self.gp_Tudo.setObjectName(u"gp_Tudo")
         font = QFont()
@@ -52,11 +39,9 @@ class Ui_Cadastro(object):
         self.gp_Tudo.setFrameShape(QFrame.Shape.StyledPanel)
         self.gp_Tudo.setFrameShadow(QFrame.Shadow.Raised)
 
-        # Criando um layout de grade para o frame
         self.gridLayout_10 = QGridLayout(self.gp_Tudo)
         self.gridLayout_10.setObjectName(u"gridLayout_10")
 
-        # Criando o frame para o campo de nome
         self.Nome = QFrame(self.gp_Tudo)
         self.Nome.setObjectName(u"Nome")
         self.Nome.setFrameShape(QFrame.Shape.StyledPanel)
@@ -86,7 +71,6 @@ class Ui_Cadastro(object):
 
         self.gridLayout_10.addWidget(self.Nome, 1, 2, 1, 1)
 
-        # Criando o frame para o campo de email
         self.Email = QFrame(self.gp_Tudo)
         self.Email.setObjectName(u"Email")
         self.Email.setFrameShape(QFrame.Shape.StyledPanel)
@@ -118,7 +102,6 @@ class Ui_Cadastro(object):
 
         self.gridLayout_10.addWidget(self.Email, 1, 7, 1, 1)
 
-        # Criando o frame para o campo de endereço
         self.Endereco = QFrame(self.gp_Tudo)
         self.Endereco.setObjectName(u"Endereco")
         self.Endereco.setFrameShape(QFrame.Shape.StyledPanel)
@@ -144,7 +127,6 @@ class Ui_Cadastro(object):
 
         self.gridLayout_10.addWidget(self.Endereco, 1, 8, 1, 1)
 
-        # Criando o frame para o campo de data de nascimento
         self.Data_Nascimento = QFrame(self.gp_Tudo)
         self.Data_Nascimento.setObjectName(u"Data_Nascimento")
         self.Data_Nascimento.setFrameShape(QFrame.Shape.StyledPanel)
@@ -174,7 +156,6 @@ class Ui_Cadastro(object):
 
         self.gridLayout_10.addWidget(self.Data_Nascimento, 6, 2, 1, 1)
 
-        # Criando o frame para o campo de telefone
         self.Telefone = QFrame(self.gp_Tudo)
         self.Telefone.setObjectName(u"Telefone")
         self.Telefone.setMaximumSize(QSize(16777215, 100))
@@ -201,7 +182,6 @@ class Ui_Cadastro(object):
 
         self.gridLayout_10.addWidget(self.Telefone, 6, 7, 1, 1)
 
-        # Criando o frame para o campo CPF
         self.CPF = QFrame(self.gp_Tudo)
         self.CPF.setObjectName(u"CPF")
         self.CPF.setFrameShape(QFrame.Shape.StyledPanel)
@@ -231,7 +211,6 @@ class Ui_Cadastro(object):
 
         self.gridLayout_10.addWidget(self.CPF, 6, 8, 1, 1)
 
-        # Criando o frame para o campo de senha
         self.Nova_Senha = QFrame(self.gp_Tudo)
         self.Nova_Senha.setObjectName(u"Nova_Senha")
         self.Nova_Senha.setFrameShape(QFrame.Shape.StyledPanel)
@@ -260,7 +239,6 @@ class Ui_Cadastro(object):
 
         self.gridLayout_10.addWidget(self.Nova_Senha, 9, 2, 1, 1)
 
-        # Criando o frame para o campo de confirmar senha
         self.Confirmar_Senha = QFrame(self.gp_Tudo)
         self.Confirmar_Senha.setObjectName(u"Confirmar_Senha")
         self.Confirmar_Senha.setFrameShape(QFrame.Shape.StyledPanel)
@@ -287,7 +265,6 @@ class Ui_Cadastro(object):
 
         self.gridLayout_10.addWidget(self.Confirmar_Senha, 9, 7, 1, 1)
 
-        # Criando o frame para o campo de sexo
         self.Sexo = QFrame(self.gp_Tudo)
         self.Sexo.setObjectName(u"Sexo")
         self.Sexo.setMaximumSize(QSize(16777215, 100))
@@ -335,7 +312,6 @@ class Ui_Cadastro(object):
         self.verticalLayout_11.addWidget(self.splitter)
         self.gridLayout_10.addWidget(self.Sexo, 9, 8, 1, 1)
 
-        # Criando o frame para o botão de adicionar foto
         self.Foto = QFrame(self.gp_Tudo)
         self.Foto.setObjectName(u"Foto")
         self.Foto.setFrameShape(QFrame.Shape.StyledPanel)
@@ -371,12 +347,14 @@ class Ui_Cadastro(object):
 
         self.pos_img = QLabel(self.Foto)
         self.pos_img.setObjectName(u"pos_img")
+        self.pos_img.setFixedSize(QSize(200, 150))  # Tamanho fixo padrão
+        self.pos_img.setAlignment(Qt.AlignmentFlag.AlignCenter)  # Centralizar a imagem
+        self.pos_img.setScaledContents(True)  # Ajustar a imagem ao tamanho da label
         self.horizontalLayout.addWidget(self.pos_img)
 
         self.gridLayout_10.addWidget(self.Foto, 10, 2, 1, 1)
         self.gridLayout.addWidget(self.gp_Tudo, 0, 0, 1, 1)
 
-        # Criando o frame para o botão de entrar
         self.Entrar = QFrame(self.gp_Tudo)
         self.Entrar.setObjectName(u"Entrar")
         self.Entrar.setMinimumSize(QSize(150, 25))
@@ -421,7 +399,6 @@ class Ui_Cadastro(object):
 
         self.gridLayout_10.addWidget(self.Entrar, 10, 7, 1, 1, Qt.AlignmentFlag.AlignHCenter | Qt.AlignmentFlag.AlignBottom)
 
-        # Criando o frame para o título do cadastro
         self.Cadastro = QFrame(self.gp_Tudo)
         self.Cadastro.setObjectName(u"Cadastro")
         self.Cadastro.setFrameShape(QFrame.Shape.StyledPanel)
@@ -495,7 +472,7 @@ class Ui_Cadastro(object):
 
             pixmap = QPixmap(self.foto_path)
             self.pos_img.setPixmap(pixmap)
-            self.pos_img.setScaledContents(True)
+            # setScaledContents já está ativado, e o tamanho fixo limita a exibição
 
     def cadastrar_usuario(self):
         nome = self.imp_nome.text().strip()

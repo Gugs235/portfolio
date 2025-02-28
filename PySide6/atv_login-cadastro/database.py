@@ -63,3 +63,28 @@ def get_user(nome, senha):
             connection.close()
             print("Conexão fechada.")
     return None
+
+def get_user_photo(nome):
+    connection = create_connection()
+    if connection:
+        try:
+            cursor = connection.cursor()
+            query = "SELECT foto FROM usuarios WHERE nome = %s"
+            cursor.execute(query, (nome,))
+            result = cursor.fetchone()
+            # Consumir quaisquer resultados restantes (se houver)
+            cursor.fetchall()  # Adicionado para evitar "Unread result found"
+            if result and result[0]:
+                print(f"Foto encontrada para {nome}: {result[0]}")
+                return result[0]
+            else:
+                print(f"Nenhuma foto encontrada para {nome}")
+                return None
+        except Error as e:
+            print(f"Erro ao buscar foto do usuário: {e}")
+            return None
+        finally:
+            cursor.close()
+            connection.close()
+            print("Conexão fechada.")
+    return None

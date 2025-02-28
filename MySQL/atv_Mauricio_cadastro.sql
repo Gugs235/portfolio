@@ -18,3 +18,6 @@ drop database atv_Mauricio_cadastro;
 select * from usuarios;
 DESC usuarios;
 ALTER TABLE usuarios ADD COLUMN foto VARCHAR(255);
+ALTER TABLE usuarios ADD COLUMN senha VARCHAR(255);
+
+insert into usuarios (nome, senha) values 

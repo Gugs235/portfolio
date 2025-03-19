@@ -1,31 +1,36 @@
 create database Checkin_Cinema ;
 use Checkin_Cinema;
+SET SQL_SAFE_UPDATES = 0;
 
 CREATE TABLE usuarios (
-    id INTEGER PRIMARY KEY auto_increment,
-    nome TEXT NOT NULL,
-    sobrenome TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL,
-    senha TEXT NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    sobrenome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE cinemas (
-    id INTEGER PRIMARY KEY auto_increment,
-    nome TEXT NOT NULL,
-    endereco TEXT NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    endereco VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE filmes (
-    id INTEGER PRIMARY KEY auto_increment,
-    titulo TEXT NOT NULL,
-    duracao INTEGER NOT NULL, -- duração em minutos
-    classificacao_etaria TEXT NOT NULL,
-    data_lancamento DATE,
-    genero TEXT,
-    sinopse TEXT,
-    trailer TEXT,  -- URL do trailer
-    imagem TEXT    -- URL ou caminho da imagem do filme
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cinema_id INT,
+    duracao TIME NOT NULL,
+    data_lancamento DATE NOT NULL,
+    genero VARCHAR(255) NOT NULL,
+    classificacao VARCHAR(255) NOT NULL,
+    sinopse TEXT NOT NULL,
+    trailer_url VARCHAR(255) NOT NULL,
+    FOREIGN KEY (cinema_id) REFERENCES cinemas(id)
 );
+
+UPDATE filmes SET cinema_id = 1 WHERE cinema_id IS NULL;
+UPDATE filmes SET data_lancamento = '2023-01-01' WHERE data_lancamento IS NULL;
 
 CREATE TABLE salas (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -102,3 +107,11 @@ CREATE TABLE cartoes (
     FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
 );
 
+SELECT * FROM usuarios;
+SELECT * FROM filmes;
+SELECT * FROM favoritos;
+SELECT * FROM reservas;
+
+
+SET SQL_SAFE_UPDATES = 1;
+#drop database Checkin_Cinema;

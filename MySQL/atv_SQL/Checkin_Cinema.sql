@@ -98,20 +98,113 @@ CREATE TABLE pagamentos (
 );
 
 CREATE TABLE cartoes (
-    id INTEGER PRIMARY KEY auto_increment,
-    id_usuario INTEGER NOT NULL,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    usuario_id INTEGER NOT NULL,
     nome_cartao TEXT NOT NULL,
     numero_cartao TEXT NOT NULL,
-    validade TEXT NOT NULL,
+    data_expiracao TEXT NOT NULL,
     cvv TEXT NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
+    FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
 );
 
-SELECT * FROM usuarios;
-SELECT * FROM filmes;
-SELECT * FROM favoritos;
-SELECT * FROM reservas;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(255) NOT NULL,
+	sobrenome VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL UNIQUE,
+	senha VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS cartoes (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	usuario_id INT,
+	nome_cartao VARCHAR(255) NOT NULL,
+	numero_cartao VARCHAR(16) NOT NULL,
+	data_expiracao VARCHAR(5) NOT NULL,
+	cvv VARCHAR(3) NOT NULL,
+	FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+CREATE TABLE IF NOT EXISTS cinemas (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS filmes (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(255) NOT NULL,
+	cinema_id INT,
+	duracao TIME NOT NULL,
+	data_lancamento DATE NOT NULL,
+	genero VARCHAR(255) NOT NULL,
+	classificacao VARCHAR(255) NOT NULL,
+	sinopse TEXT NOT NULL,
+	trailer_url VARCHAR(255) NOT NULL,
+	poster_path VARCHAR(255),  -- Novo campo para o caminho do pôster
+	FOREIGN KEY (cinema_id) REFERENCES cinemas(id)
+);
+
+CREATE TABLE IF NOT EXISTS sessoes (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	filme_id INT NOT NULL,
+	cinema_id INT NOT NULL,
+	data DATE NOT NULL,
+	horario TIME NOT NULL,
+	tipo_sala VARCHAR(255) NOT NULL,
+	lotacao_maxima INT NOT NULL,
+	FOREIGN KEY (filme_id) REFERENCES filmes(id),
+	FOREIGN KEY (cinema_id) REFERENCES cinemas(id)
+);
+
+CREATE TABLE IF NOT EXISTS filmes (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	nome VARCHAR(255) NOT NULL,
+	cinema_id INT,
+	duracao TIME NOT NULL,
+	data_lancamento DATE NOT NULL,
+	genero VARCHAR(255) NOT NULL,
+	classificacao VARCHAR(255) NOT NULL,
+	sinopse TEXT NOT NULL,
+	trailer_url VARCHAR(255) NOT NULL,
+	poster_data MEDIUMBLOB,  -- Novo campo para armazenar os dados binários da imagem
+	FOREIGN KEY (cinema_id) REFERENCES cinemas(id)
+);
+
+CREATE TABLE IF NOT EXISTS assentos (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	sessao_id INT,
+	numero VARCHAR(255) NOT NULL,
+	reservado BOOLEAN NOT NULL DEFAULT FALSE,
+	FOREIGN KEY (sessao_id) REFERENCES sessoes(id)
+);
+
+CREATE TABLE IF NOT EXISTS reservas (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	usuario_id INT,
+	sessao_id INT,
+	assento_id INT,
+	forma_pagamento VARCHAR(255) NOT NULL,
+	valor_total DECIMAL(10, 2) NOT NULL,
+	FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+	FOREIGN KEY (sessao_id) REFERENCES sessoes(id),
+	FOREIGN KEY (assento_id) REFERENCES assentos(id)
+);
+
+CREATE TABLE IF NOT EXISTS favoritos (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	usuario_id INT NOT NULL,
+	filme_id INT NOT NULL,
+	FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+	FOREIGN KEY (filme_id) REFERENCES filmes(id)
+);
 
 
 SET SQL_SAFE_UPDATES = 1;
+
 #drop database Checkin_Cinema;
+
+SELECT * FROM cartoes;
+
+#SELECT * FROM filmes;
+#SELECT * FROM favoritos;

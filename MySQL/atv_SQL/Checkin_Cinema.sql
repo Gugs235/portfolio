@@ -61,12 +61,12 @@ CREATE TABLE assentos (
 );
 
 CREATE TABLE favoritos (
-    id INTEGER PRIMARY KEY auto_increment,
-    id_usuario INTEGER NOT NULL,
-    id_filme INTEGER NOT NULL,
-    data_favorito TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id),
-    FOREIGN KEY (id_filme) REFERENCES filmes (id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_filme INT NOT NULL,
+    UNIQUE KEY unique_favorito (id_usuario, id_filme),  -- Garante que não haja duplicatas
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+    FOREIGN KEY (id_filme) REFERENCES filmes(id)
 );
 
 CREATE TABLE compras (
@@ -98,20 +98,20 @@ CREATE TABLE pagamentos (
 );
 
 CREATE TABLE cartoes (
-    id INTEGER PRIMARY KEY auto_increment,
-    id_usuario INTEGER NOT NULL,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    usuario_id INTEGER NOT NULL,
     nome_cartao TEXT NOT NULL,
     numero_cartao TEXT NOT NULL,
-    validade TEXT NOT NULL,
+    data_expiracao TEXT NOT NULL,  -- Alterado de 'validade' para 'data_expiracao'
     cvv TEXT NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 
 SELECT * FROM usuarios;
 SELECT * FROM filmes;
 SELECT * FROM favoritos;
-SELECT * FROM reservas;
 
 
 SET SQL_SAFE_UPDATES = 1;
 #drop database Checkin_Cinema;
+DESCRIBE cartoes;

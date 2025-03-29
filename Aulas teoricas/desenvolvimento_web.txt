@@ -1,0 +1,11 @@
+html - marcação não uma linguagem de programação - HTML é uma linguagem de marcação, não uma linguagem de programação. Isso significa que você não pode executar códigos em HTML, apenas criar a estrutura da página. Por exemplo, você pode criar um botão, mas não pode fazer com que ela botão faça algo quando for clicado. Para isso, você precisa usar uma linguagem de programação, como JavaScript ou Python.
+
+html - esqueleto da página
+css - estilo da página
+javascript - lógica da página
+
+tag - elemento da página
+    tag com fechamento
+        # comenta <!--Tag vom fechamento-->
+    tag sem fechamento
+        <h1>Olá alunos!</h1>

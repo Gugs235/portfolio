@@ -1,0 +1,70 @@
+h1 {
+    color: #6B48FF;
+}
+
+h2 {
+    color: #6B48FF;
+}
+
+h3 {
+    color: green;
+}
+
+h4 {
+    color: rgb(218, 30, 146);
+}
+
+h5 {
+    color: purple;
+}
+
+h6 {
+    color: brown;
+}
+
+p {
+    color: #666;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+nav {
+    background-color: lightgray;
+    padding: 10px;
+    text-align: center;
+    word-spacing: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: crimson;
+}
+
+footer {
+    background-color: lightgray;
+    padding: 1px;
+    text-align: center;
+    position: bottom;
+    bottom: 0;
+    width: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Importe do Google Fonts */
+    background-color: #F5F5F5;
+    color: #333;
+    line-height: 1.6;
+    max-width: 900px; /* Limita a largura para não ficar muito espalhado */
+    margin: 0 auto; /* Centraliza o conteúdo */
+    padding: 20px;
+}
+
+strong {
+    color: #6B48FF; /* Destaque nos títulos e subtítulos */
+}

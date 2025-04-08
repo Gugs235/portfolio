@@ -1,0 +1,126 @@
+/* Reset básico para tirar margens padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do body */
+body {
+    font-family: 'Roboto', sans-serif; /* Importe do Google Fonts */
+    background-color: #F5F5F5;
+    color: #333;
+    line-height: 1.6;
+    max-width: 900px; /* Limita a largura para não ficar muito espalhado */
+    margin: 0 auto; /* Centraliza o conteúdo */
+    padding: 20px;
+}
+
+/* Cabeçalho */
+header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #6B48FF;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #6B48FF;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Imagem */
+img {
+    display: block;
+    margin: 20px auto; /* Centraliza a imagem */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Seções */
+h2 {
+    font-size: 1.8em;
+    color: #6B48FF;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none; /* Remove os marcadores padrão */
+    margin-bottom: 20px;
+}
+
+ul li {
+    padding: 10px;
+    background-color: #FFF;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+strong {
+    color: #6B48FF; /* Destaque nos títulos e subtítulos */
+}
+
+/* Links */
+a {
+    color: #6B48FF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #4A32CC; /* Tom mais escuro ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+    color: #666;
+    border-top: 1px solid #DDD;
+    margin-top: 30px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    img {
+        width: 100%; /* Imagem se ajusta ao tamanho da tela */
+        height: auto;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    ul li {
+        padding: 8px;
+    }
+}

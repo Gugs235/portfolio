@@ -5,8 +5,6 @@ export default function App() {
       alert("Você clicou no Botão!")
     };
 
-
-
   return (
     <View style={styles.container}>
       <Text>Olá, Mundo!</Text> 
@@ -23,9 +21,12 @@ export default function App() {
     container: {
       flex: 1,
       backgroundColor: '#fff',
-     // alignItems: 'center',
-     // justifyContent: 'center',
+      alignItems: 'center', // Centraliza horizontalmente
+      justifyContent: 'center', // Centraliza verticalmente
     },
-  
+    image: { // Renomeei "Image" para "image" (minúsculo, padrão de JS)
+      width: 200,
+      height: 200,
+      resizeMode: 'contain', // Melhora o redimensionamento da imagem
+    },
   });
-  

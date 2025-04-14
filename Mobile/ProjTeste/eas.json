@@ -15,20 +15,5 @@
         "buildType": "apk"
       }
     }
-  },
-  "extra": {
-    "eas": {
-      "projectId": "98477fdd-d3c6-470b-8a7c-121edf2f8ed1"
-    }
-  },
-  "expo": {
-    "android": {
-      "package": "com.gugs235.projteste"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "98477fdd-d3c6-470b-8a7c-121edf2f8ed1"
-      }
-    }
   }
 }

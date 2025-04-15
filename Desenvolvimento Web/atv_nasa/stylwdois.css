@@ -1,4 +1,4 @@
-/* Pagina das home */
+/* Página da Home */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,7 +9,7 @@ body {
     font-size: 16px;
 }
 
-.nav-principal {
+nav {
     background-color: #000000;
     padding: 29px;
     position: fixed;
@@ -18,21 +18,6 @@ body {
     z-index: 1000;
     display: flex;
     justify-content: center;
-    text-align: center;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s ease;
-}
-
-.nav-footer {
-    background-color: #000000;
-    padding: 29px;
-    bottom: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    text-align: center;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     transition: background-color 0.3s ease;
@@ -46,7 +31,7 @@ nav a {
 
 nav a:hover {
     text-decoration: underline;
-    color: #959599; /* Amarelo para destaque */
+    color: #959599; /* Cinza para destaque */
     transition: color 0.2s ease;
 }
 
@@ -58,7 +43,7 @@ nav a.active {
 header {
     position: relative;
     height: 100vh; /* Altura total da tela */
-    background-image: url('img/webb_tarantula_neb_fundo.webp'); /* Ajuste o nome da imagem aqui */
+    background-image: url('img/webb_tarantula_neb_fundo.webp'); /* Imagem de fundo */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -68,7 +53,7 @@ header {
 }
 
 .hero {
-    position: left;
+    position: relative; /* Corrigido de position: left */
     z-index: 1;
 }
 
@@ -81,13 +66,6 @@ header::before {
     height: 100%;
     background: rgba(0, 0, 0, 0.5); /* Overlay escuro para legibilidade do texto */
     z-index: 0;
-}
-
-#escuro {
-    font-size: 50px;
-    color: #ffffff,; /* Texto claro */
-    border-radius: 5px;
-    padding: 10px 20px;
 }
 
 header h1 {
@@ -122,21 +100,6 @@ header h2 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    #subtitulo {
-        font-size: 1.2rem; /* Reduz o tamanho da fonte */
-        max-width: 90%; /* Ajusta a largura para telas menores */
-    }
-}
-
-@media (max-width: 480px) {
-    #subtitulo {
-        font-size: 1rem; /* Ainda menor em celulares */
-        max-width: 95%;
-    }
-}
-
 main {
     padding-top: 100px; /* Ajustado para compensar o menu fixo */
 }
@@ -145,6 +108,124 @@ section {
     margin: 20px;
     padding: 20px;
     background-color: #1a1a3d; /* Azul escuro para consistência */
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+}
+
+.btn-recent {
+    background-color: #d83933; /* Vermelho para destaque */
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-recent:hover {
+    background-color: #8c0a03; /* Vermelho mais escuro para hover */
+}
+
+.destaques {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.destaque-principal {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background-color: #2a2a5a; /* Um azul um pouco mais claro */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.destaque-principal img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.destaque-principal h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.destaque-principal p {
+    margin-bottom: 10px;
+}
+
+.destaques-menores {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.destaque-menor {
+    display: flex;
+    gap: 15px;
+    background-color: #2a2a5a;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.destaque-menor img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.destaque-menor .content {
+    flex: 1;
+}
+
+.destaque-menor h2 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.destaque-menor h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.destaque-menor p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.label, .tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #959599;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+article a {
+    color: #d83933; /* Vermelho para os links */
+    text-decoration: none;
+}
+
+article a:hover {
+    text-decoration: underline;
+    color: #8c0a03; /* Vermelho mais escuro no hover */
 }
 
 .buttons {
@@ -184,57 +265,58 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
     header h1 {
         font-size: 2rem;
+        margin-left: 20px;
     }
+
+    #subtitulo {
+        font-size: 1.2rem;
+        max-width: 90%;
+        margin-left: 20px;
+    }
+
     header h2 {
         font-size: 1rem;
     }
+
+    .destaques {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .destaque-menor {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .destaque-menor img {
+        width: 80px;
+        height: 80px;
+    }
 }
 
-/* Pagina das novidades */
-.destaques {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+        margin-left: 15px;
+    }
 
-.destaques article {
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
-}
+    #subtitulo {
+        font-size: 1rem;
+        max-width: 95%;
+        margin-left: 15px;
+    }
 
-article {
-    background-color: #2a2a5a; /* Um azul um pouco mais claro que o section */
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
+    .section-header {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-article h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-article h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-article p {
-    margin-bottom: 10px;
-}
-
-article a {
-    color: #d83933; /* Vermelho para os links */
-    text-decoration: none;
-}
-
-article a:hover {
-    text-decoration: underline;
-    color: #8c0a03; /* Vermelho mais escuro no hover */
+    .btn-recent {
+        padding: 8px 16px;
+    }
 }

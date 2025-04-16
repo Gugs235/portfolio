@@ -1,12 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, Dimensions, TouchableOpacity } from 'react-native';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { useState } from 'react';
 
 // Configura dimensões específicas para o Xiaomi Redmi Note 8 (1080x2340 pixels, densidade ~390 ppi)
-const WINDOW_WIDTH = 310; // Largura em dp (1080px / 3, assumindo escala 3x)
+const WINDOW_WIDTH = 360; // Corrige para 360 dp (1080px / 3, assumindo escala 3x)
 const WINDOW_HEIGHT = 780; // Altura em dp (2340px / 3, ajustado para área útil)
 
 function MinhasCredenciais({ githubUser }) {
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handleHeartPress = () => {
+    setIsLiked(!isLiked);
+  };
+
   return (
     <View style={styles.credenciaisContainer}>
       <View style={styles.userInfo}>
@@ -25,7 +32,13 @@ function MinhasCredenciais({ githubUser }) {
         }}
       />
       <View style={styles.heartContainer}>
-        <AntDesign name="hearto" size={24} color="black" />
+        <TouchableOpacity onPress={handleHeartPress}>
+          <AntDesign
+            name={isLiked ? 'heart' : 'hearto'}
+            size={24}
+            color={isLiked ? 'red' : 'black'}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );

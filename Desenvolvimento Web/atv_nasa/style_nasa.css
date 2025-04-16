@@ -55,16 +55,42 @@ nav a.active {
     text-decoration: underline;
 }
 
+/* Existing header styles */
 header {
     position: relative;
-    height: 100vh; /* Altura total da tela */
-    background-image: url('img/webb_tarantula_neb_fundo.webp'); /* Ajuste o nome da imagem aqui */
+    height: 100vh;
+    background-image: url('img/webb_tarantula_neb_fundo.webp'); /* Default image */
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+/* Custom background images for each page */
+.header-home {
+    background-image: url('img/webb_tarantula_neb_fundo.webp'); /* Keep default for home */
+}
+
+.header-news {
+    background-image: url('img/webb_tarantula_neb_fundo.webp'); /* Example image for news */
+}
+
+.header-about {
+    background-image: url('img/sobreNasa.webp'); /* Example image for about */
+}
+
+.header-space {
+    background-image: url('img/space_exploration.jpg'); /* Example image for space */
+}
+
+.header-earth {
+    background-image: url('img/climaNasa.webp'); /* Example image for climate */
+}
+
+.header-contact {
+    background-image: url('img/webb_tarantula_neb_fundo.webp'); /* Example image for contact */
 }
 
 .hero {

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv_midiamax_grid</title>
+
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 17% 25% 20% 15% 20%;
+            background-color: rgb(255, 255, 255);
+            /* padding: 20px; Espaçamento interno do container */
+            gap: 10px; /* Espaçamento entre os itens */
+            row-gap: 15px; /* Espaçamento entre as linhas */
+        }
+
+        /* .grid-item {
+            border: 1px solid rgba(0, 0, 0, 0.8);
+        } */
+
+        .item1 { 
+            grid-column-start: 1;
+            grid-column-end: 1;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+        .item2 > h1 {
+            font-size: 40px;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            margin: 0; /* Remove margens padrão */
+        }
+        .item2 {
+            grid-area: 1/2/1/5;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .img-homem {
+            width: 90%;
+            height: auto;
+        }
+
+        .img-conversando {
+            width: 90%;
+            height: auto;
+        }
+
+        .item6 {
+            grid-column-start: 5;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+        .parte1, .parte2 {
+            width: 100%;
+            height: auto;
+        }
+        .parte3 {
+            width: 40%; /* Ajuste o tamanho da imagem para ocupar menos espaço */
+            height: auto;
+        }
+        h2 {
+            font-size: 20px; /* Reduzido para melhor visualização */
+            color: rgb(0, 0, 0);
+            text-align: left;
+            margin: 0; /* Remove margens padrão */
+        }
+        p {
+            font-size: 16px; /* Reduzido para melhor visualização */
+            color: rgb(255, 166, 0);
+            text-align: left;
+            margin: 0; /* Remove margens padrão */
+        }
+
+        /* Novo estilo para os itens de notícia */
+        .news-item {
+            display: flex; /* Usa Flexbox para alinhar imagem e texto lado a lado */
+            align-items: flex-start; /* Alinha os itens ao topo */
+            margin-bottom: 15px; /* Espaço entre os itens de notícia */
+        }
+        .news-item img {
+            margin-right: 10px; /* Espaço entre a imagem e o texto */
+        }
+        .news-item .text-content {
+            flex: 1; /* O texto ocupa o espaço restante */
+            display: flex;
+            flex-direction: column; /* Organiza <p> e <h2> verticalmente */
+        }
+
+        .text-content > h2 {
+            font-size: 13px; /* Reduzido para melhor visualização */
+            color: rgb(0, 0, 0);
+            text-align: left;
+            margin: 0; /* Remove margens padrão */
+        }
+
+        .text-content > p {
+            font-size: 10px; /* Reduzido para melhor visualização */
+            color: rgb(255, 166, 0);
+            text-align: left;
+            margin: 0; /* Remove margens padrão */
+        }
+
+        hr{
+            border: 0; /* Remove a borda padrão */
+            height: 0.1px; /* Altura da linha */
+            background-color: rgb(0, 0, 0);
+            margin: 8px 0; /* Espaço acima e abaixo da linha */
+            width: 100px; /* Largura total do item de notícia */
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item item1"></div>
+
+        <div class="grid-item item2">
+            <h1>Fraude da merenda pode gerar 22 mi em indenização</h1>
+        </div>
+        
+        <div class="grid-item item3">
+            <img class="parte1" src="../atv_midiamax_grid/midiamax_mulher.gif" alt="mulher">
+            <p>Condenada a 10 anos</p>
+            <h2>Assassina de estudante, ex-jurada do Bolinha volta à prisão por tráfico em MS</h2>
+        </div>
+
+        <div class="grid-item item4">
+            <img class="img-homem" src="../atv_midiamax_grid/midiamax_homi.webp" alt="homem">
+            <p>Post Patrocinado</p>
+            <h2>E se bastassem só 20 minutos para você mudar o seu corpo?</h2>
+            <br>
+            <img class="img-conversando" src="../atv_midiamax_grid/midiamax_homi-conversando.webp" alt="conversando">
+            <p>Saúde e Bem-Estar</p>
+            <h2>Pálpebra caída pode afetar a visão: entenda quando a cirurgia é necessária</h2>
+        </div>
+
+        <div class="grid-item item5">
+            <div class="news-item">
+                <img class="parte3" src="../atv_midiamax_grid/midiamax_fazenda.webp" alt="fazenda">
+                <div class="text-content">
+                    <p>Grupo Infoshop</p>
+                    <h2>Produtor, compre o seu maquinário com o Consórcio Infoshop</h2>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <img class="parte3" src="../atv_midiamax_grid/midiamax_morte.webp" alt="morte">
+                <div class="text-content">
+                    <p>Anastácio</p>
+                    <h2>Policial militar afirma que matou homem a tiro em legítima defesa</h2>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <img class="parte3" src="../atv_midiamax_grid/midiamax_caminao.jpeg" alt="caminhao">
+                <div class="text-content">
+                    <p>Bairro Rita Vieira</p>
+                    <h2>Caminhão tomba ao fazer rotatória, atinge poste e rompe cabos</h2>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <img class="parte3" src="../atv_midiamax_grid/midiamax_outro-homi.webp" alt="outro-homi">
+                <div class="text-content">
+                    <p>Deodápolis</p>
+                    <h2>"Era ele ou eu": produtor rural é morto após briga com caseiro</h2>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <img class="parte3" src="../atv_midiamax_grid/midiamax_outro-outro-homi.webp" alt="outro-outro-homi">
+                <div class="text-content">
+                    <p>Post Patrocinado</p>
+                    <h2>Festa da Farinha começa dia 2 de maio e espera 25 mil pessoas por noite</h2>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item item6"></div>
+    </div>
+</body>
+</html>

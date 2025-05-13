@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornal Midiamax - Notícias de Campo Grande e Mato Grosso do Sul</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: #003087;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        nav {
+            background: #f4f4f4;
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .main-content {
+            display: flex;
+            margin: 2rem 0;
+            gap: 2rem;
+        }
+
+        .news-section {
+            flex: 3;
+        }
+
+        .sidebar {
+            flex: 1;
+            background: #f9f9f9;
+            padding: 1rem;
+        }
+
+        .news-article {
+            margin-bottom: 2rem;
+        }
+
+        .news-article h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-article p {
+            margin-bottom: 0.5rem;
+        }
+
+        .news-article a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        footer {
+            background: #003087;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Responsive Design with Media Queries */
+        @media screen and (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .news-section, .sidebar {
+                flex: 1;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .news-article h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .news-article h3 {
+                font-size: 1rem;
+            }
+
+            .news-article p {
+                font-size: 0.9rem;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Jornal Midiamax - Notícias de Campo Grande e Mato Grosso do Sul</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <button class="hamburger">☰</button>
+            <ul>
+                <li><a href="#">Polícia</a></li>
+                <li><a href="#">Política</a></li>
+                <li><a href="#">MidiaMAIS</a></li>
+                <li><a href="#">Famosos</a></li>
+                <li><a href="#">Cotidiano</a></li>
+                <li><a href="#">Emprego e Concurso</a></li>
+                <li><a href="#">Esportes</a></li>
+                <li><a href="#">Brasil</a></li>
+                <li><a href="#">Mundo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <section class="news-section">
+            <article class="news-article">
+                <h3>Mulher que matou filha afogada é condenada a 6 anos de prisão em Campo Grande</h3>
+                <p>Uma mulher foi condenada a 6 anos de prisão por matar a filha afogada em Campo Grande...</p>
+                <a href="#">Leia mais</a>
+            </article>
+            <article class="news-article">
+                <h3>Corpo de bebê de 9 meses morta após injeção em hospital de MS é exumado</h3>
+                <p>O corpo de um bebê de 9 meses foi exumado após suspeitas relacionadas à aplicação de uma injeção...</p>
+                <a href="#">Leia mais</a>
+            </article>
+            <article class="news-article">
+                <h3>Gripe comum em humanos é identificada em tamanduás do Pantanal</h3>
+                <p>Entidade alerta para a presença de gripe comum em tamanduás do Pantanal, com possíveis implicações...</p>
+                <a href="#">Leia mais</a>
+            </article>
+        </section>
+
+        <aside class="sidebar">
+            <h3>Últimas notícias</h3>
+            <p>Vander lamenta morte de Pepe Mujica: “homem brilhante, de sabedoria que poucos têm”</p>
+            <p>Requerimento cobra informações sobre concurso com 400 vagas para Polícia Civil de MS</p>
+            <p>Juiz vê indícios de corrupção em contrato de R$ 59 milhões com empresa do Sigo</p>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Jornal Midiamax. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 10% 30% 25% 22% 10%;
+    background-color: rgb(255, 255, 255);
+    /* padding: 20px; Espaçamento interno do container */
+    gap: 10px; /* Espaçamento entre os itens */
+    row-gap: 15px; /* Espaçamento entre as linhas */
+}
+
+/* .grid-item {
+    border: 0.1px solid rgba(0, 0, 0, 0.8);
+} */
+
+.item1 { 
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.item2 > h1 {
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin: 0; /* Remove margens padrão */
+}
+.item2 {
+    grid-area: 1/2/1/5;
+    text-align: center;
+    font-size: 30px;
+}
+
+.img-homem {
+    width: 90%;
+    height: auto;
+}
+
+.img-conversando {
+    width: 90%;
+    height: auto;
+}
+
+.item6 {
+    grid-column-start: 5;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.parte1, .parte2 {
+    width: 100%;
+    height: auto;
+}
+.parte3 {
+    width: 40%; /* Ajuste o tamanho da imagem para ocupar menos espaço */
+    height: auto;
+}
+h2 {
+    font-size: 20px; /* Reduzido para melhor visualização */
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 0; /* Remove margens padrão */
+}
+p {
+    font-size: 16px; /* Reduzido para melhor visualização */
+    color: rgb(255, 166, 0);
+    text-align: left;
+    margin: 0; /* Remove margens padrão */
+}
+
+/* Novo estilo para os itens de notícia */
+.news-item {
+    display: flex; /* Usa Flexbox para alinhar imagem e texto lado a lado */
+    align-items: flex-start; /* Alinha os itens ao topo */
+    margin-bottom: 15px; /* Espaço entre os itens de notícia */
+}
+.news-item img {
+    margin-right: 10px; /* Espaço entre a imagem e o texto */
+}
+.news-item .text-content {
+    flex: 1; /* O texto ocupa o espaço restante */
+    display: flex;
+    flex-direction: column; /* Organiza <p> e <h2> verticalmente */
+}
+
+.text-content > h2 {
+    font-size: 13px; /* Reduzido para melhor visualização */
+    color: rgb(0, 0, 0);
+    text-align: left;
+    margin: 0; /* Remove margens padrão */
+}
+
+.text-content > p {
+    font-size: 10px; /* Reduzido para melhor visualização */
+    color: rgb(255, 166, 0);
+    text-align: left;
+    margin: 0; /* Remove margens padrão */
+}
+
+hr{
+    border: 0; /* Remove a borda padrão */
+    height: 0.1px; /* Altura da linha */
+    background-color: rgb(0, 0, 0);
+    margin: 8px 0; /* Espaço acima e abaixo da linha */
+    width: 100px; /* Largura total do item de notícia */
+}
+

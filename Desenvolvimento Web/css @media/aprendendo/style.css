@@ -1,42 +1,40 @@
 body {
-    background-color: #da2d2d;
-    font-family: Arial, sans-serif;
-    font-size: 30px;
+	background-color: #da2d2d;
+	font-family: Arial, sans-serif;
+	font-size: 30px;
 }
 
 @media (min-width: 850px) and (max-width: 1500px) {
-    body {
-        background-color: #2d2dda;
-        font-size: 20px;
-    }
+	body {
+		background-color: #2d2dda;
+		font-size: 20px;
+	}
 }
 @media (max-width: 850px) {
-    body {
-        background-color: #52b617;
-        font-size: 10px;
-    }
+	body {
+		background-color: #52b617;
+		font-size: 10px;
+	}
 }
-
-
 
 /* Estilo padrão (mobile first) */
 .container {
-    width: 90%;
-    font-size: 1rem;
+	width: 90%;
+	font-size: 1rem;
 }
 
 /* Tablets */
 @media (min-width: 768px) {
-    .container {
-        width: 80%;
-        font-size: 1.2rem;
-    }
-}   
+	.container {
+		width: 80%;
+		font-size: 1.2rem;
+	}
+}
 
 /* Desktop */
 @media (min-width: 1024px) {
-    .container {
-        width: 70%;
-        font-size: 1.4rem;
-    }
+	.container {
+		width: 70%;
+		font-size: 1.4rem;
+	}
 }

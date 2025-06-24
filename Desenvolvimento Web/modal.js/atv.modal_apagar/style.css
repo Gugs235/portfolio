@@ -1,0 +1,18 @@
+.modal {
+	width: 50%;
+	z-index: 100;
+	justify-content: center;
+	align-self: center;
+	border: none;
+	background-color: #e7e5e5;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	border-radius: 5px;
+	transition: all 0.3s ease;
+	flex-direction: column;
+	position: absolute;
+	z-index: 100;
+}
+
+.ModalOpen {
+	display: flex;
+}

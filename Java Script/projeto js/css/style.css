@@ -1,0 +1,23 @@
+#container_btns {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 400px;
+	background-color: aqua;
+	height: 200px;
+}
+
+.div_texto {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 400px;
+	background-color: yellow;
+}
+
+.cabecalho {
+	width: 400px;
+	height: 150px;
+	background-color: lightgreen;
+	color: brown;
+}

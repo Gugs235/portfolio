@@ -1,0 +1,172 @@
+/* css/style.css */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: Arial, sans-serif;
+	background: #f0f4f8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.calculator-container {
+	background: #ffffff;
+	padding: 2rem;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	width: 360px;
+}
+
+header {
+	text-align: center;
+	margin-bottom: 1.5rem;
+}
+
+header h1 {
+	font-size: 1.8rem;
+	color: #333;
+}
+
+header p {
+	margin: 0.5rem 0;
+	color: #555;
+}
+
+header input {
+	width: 100%;
+	padding: 0.5rem;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+}
+
+.display {
+	margin-bottom: 1rem;
+}
+
+.display input {
+	width: 100%;
+	padding: 0.75rem;
+	font-size: 1.25rem;
+	text-align: right;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	background: #eef2f7;
+}
+
+.form-inputs {
+	display: flex;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+.form-inputs input {
+	flex: 1;
+	padding: 0.5rem;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+}
+
+.buttons-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.5rem;
+}
+
+.buttons-grid button {
+	padding: 0.75rem;
+	font-size: 1.25rem;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background 0.2s, transform 0.1s;
+}
+
+.buttons-grid button:active {
+	transform: scale(0.97);
+}
+
+.op {
+	background: #4a90e2;
+	color: #fff;
+}
+
+.eq {
+	grid-column: span 2;
+	background: #50e3c2;
+	color: #fff;
+}
+
+.clr {
+	background: #e94e77;
+	color: #fff;
+}
+
+.buttons-grid button:hover {
+	opacity: 0.9;
+}
+
+.input_number {
+	width: 50%;
+}
+
+/* Modo escuro */
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #121212;
+		color: #e0e0e0;
+	}
+
+	.calculator-container {
+		background: #1e1e1e;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+	}
+
+	header h1,
+	header p {
+		color: #f0f0f0;
+	}
+
+	header input {
+		background: #2a2a2a;
+		border: 1px solid #444;
+		color: #e0e0e0;
+	}
+
+	.display input {
+		background: #2a2a2a;
+		border: 1px solid #444;
+		color: #fff;
+	}
+
+	.form-inputs input {
+		background: #2a2a2a;
+		border: 1px solid #444;
+		color: #e0e0e0;
+	}
+
+	.buttons-grid button {
+		color: #f0f0f0;
+	}
+
+	.op {
+		background: #264a78;
+	}
+
+	.eq {
+		background: #2a6f5d;
+	}
+
+	.clr {
+		background: #a33a4f;
+	}
+
+	.buttons-grid button:hover {
+		opacity: 0.85;
+	}
+}

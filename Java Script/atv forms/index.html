@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Simples</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <div class="calculator-container">
+        <header>
+            <h1>Calculadora JS</h1>
+            <p>Bem-vindo! <span id="msg"></span></p>
+            <input type="text" id="usuario" placeholder="Seu nome" />
+        </header>
+
+        <form id="calculator_form">
+            <main>
+                <div class="display">
+                    <input type="text" id="resultado" readonly placeholder="0" />
+                </div>
+
+                <div class="form-inputs">
+                    <input type="number" id="num1" class="input_number" placeholder="Número 1" />
+                    <input type="number" id="num2" class="input_number" placeholder="Número 2" />
+                </div>
+
+                <div class="buttons-grid">
+                    <button type="button" id="som" class="op">+</button>
+                    <button type="button" id="sub" class="op">−</button>
+                    <button type="button" id="mult" class="op">×</button>
+                    <button type="button" id="divi" class="op">÷</button>
+                    <button type="button" id="igual" class="eq">=</button>
+                    <!-- <button type="button" id="limpar" class="clr">C</button> -->
+                </div>
+            </main>
+        </form>
+    </div>
+</body>
+
+</html>
